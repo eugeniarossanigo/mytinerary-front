@@ -1,0 +1,42 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+.Welcome-main{
+    background-image: url('../images/nature1.jpg');
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+.Welcome-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+img{
+    width: 14rem;
+}
+p{
+    color: #fff;
+    text-shadow: 1px 1px 2px orange;
+    font-size: 1.5rem;
+}
+a{
+    width: 6rem;
+    padding: .7rem;
+    background-color: orange;
+    text-align: center;
+    border: none;
+    border-radius: .3rem;
+    color:#fff;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+a:hover{
+    background-color: orangered;
+}
