@@ -1,9 +1,9 @@
-import Footer from '../components/Footer';
+import Welcome from '../pages/Welcome';
 
 function App() {
   return (
     <>
-      <Footer />
+      <Welcome />
     </>
   );
 }
