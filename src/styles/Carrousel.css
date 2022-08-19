@@ -1,0 +1,18 @@
+.Carrousel-container{
+    width: 75%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.Carrousel-pic img{
+    width: 35rem;
+    object-fit: contain;  
+}
+
+h2{
+    font-size: 2rem;
+    margin-top: 1rem;
+}

@@ -1,12 +1,11 @@
 import '../styles/Welcome.css'
-import Logo from '../images/logo-2.png'
 
 function Welcome() {
   return (
     <>
         <div className="Welcome-main">
             <div className="Welcome-text">
-                <img src={Logo}></img>
+                <img src='images/logo-2.png' />
                 <p>Find your perfect trip, designed by insiders who know and love their cities!</p>
                 <a className="Welcome-btn" href="#">ENTRAR</a>
             </div>

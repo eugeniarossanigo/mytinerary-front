@@ -1,7 +1,7 @@
 .Welcome-main{
     width: 100%;
     min-height: 90vh;
-    background-image: url('../images/nature1.jpg');
+    background-image: url('../../public/images/nature1.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     display: flex;
