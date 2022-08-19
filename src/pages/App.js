@@ -1,7 +1,7 @@
 import '../styles/App.css';
 import Welcome from '../components/Welcome';
 import Carrousel from '../components/Carrousel';
-import Footer from '../components/Footer';
+import CitiesLayout from '../layouts/CitiesLayout'
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <main>
         <Carrousel />
       </main>
-      <Footer />
+      <CitiesLayout />
     </>
   );
 }
