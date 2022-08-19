@@ -23,19 +23,28 @@
     text-shadow: 1px 1px 2px orange;
     font-size: 1.5rem;
 }
-.Welcome-main a{
+.Welcome-main a {
     text-decoration: none;
-    width: 6rem;
-    padding: .7rem;
-    background-color: orange;
-    text-align: center;
-    border: none;
-    border-radius: .3rem;
-    color:#fff;
-    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 60px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid rgba(255, 166, 0, 0.616);
+    border-radius: .5rem;
+    outline: none;
+    transition: 1s ease-in-out;
+    color: white;
+    font-size: 1.5rem;
     font-weight: 600;
 }
-
-.Welcome-main a:hover{
-    background-color: orangered;
+.Welcome-main a:hover {
+    transition: 1s ease-in-out;
+    transform: scale(1.1);
+    background: rgba(255, 166, 0, 0.5);
+}
+.Welcome-main a:hover svg {
+    stroke-dashoffset: -480;
 }
