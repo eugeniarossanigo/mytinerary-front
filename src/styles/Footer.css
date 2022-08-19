@@ -23,3 +23,31 @@ footer img{
 .Footer-nav a:hover{
     color: orangered;
 }
+.Footer-social ul{
+    display: flex;
+    justify-content: space-between;
+}
+.Footer-social li {
+    list-style: none;
+}
+.Footer-social a {
+    text-decoration: none;
+}
+.Footer-social i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    margin-right: .5rem;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 4px rgba(236, 130, 92, 0.829);
+    z-index: 100;
+    transition: 0.5s;
+}
+.Footer-social i:hover {
+    transform: scale(1.1);
+}

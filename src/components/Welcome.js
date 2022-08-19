@@ -5,9 +5,9 @@ function Welcome() {
     <>
         <div className="Welcome-main">
             <div className="Welcome-text">
-                <img src='images/logo-2.png' />
+                <img src='images/logo-white.png' />
                 <p>Find your perfect trip, designed by insiders who know and love their cities!</p>
-                <a className="Welcome-btn" href="#">ENTRAR</a>
+                <a className="Welcome-btn" href="#">START TRIP</a>
             </div>
         </div>
     </>
