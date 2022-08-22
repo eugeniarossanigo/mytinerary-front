@@ -1,18 +1,35 @@
-.Carrousel-container{
+.Carrousel-main{
     width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0;
+}
+.Carrousel-container{
+    display: flex;
+    margin: 2rem 0;
+}
+.Carrousel-img-container{
     display: flex;
     flex-wrap: wrap;
     margin: 2rem 0;
-    justify-content: space-between;
+    justify-content: space-evenly;
     gap: 1rem;
 }
-
-.Carrousel-pic img{
+.Carrousel-pic{
     width: 35rem;
+}
+.Carrousel-pic img{
+    width: 100%;
     object-fit: contain;  
 }
-
 h2{
     font-size: 2rem;
     margin-top: 1rem;
+   
+}
+h3{
+    font-size: 1rem;
+    transform: translatey(-2rem);
+    text-align: center;
 }

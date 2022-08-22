@@ -1,16 +1,10 @@
 import '../styles/App.css';
-import Welcome from '../components/Welcome';
-import Carrousel from '../components/Carrousel';
-import CitiesLayout from '../layouts/CitiesLayout'
+import Home from '../pages/Home';
 
 function App() {
   return (
     <>
-      <Welcome />
-      <main>
-        <Carrousel />
-      </main>
-      <CitiesLayout />
+      <Home />
     </>
   );
 }
