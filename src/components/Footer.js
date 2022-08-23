@@ -1,4 +1,14 @@
 import '../styles/Footer.css';
+import {Link as LinkRouter} from 'react-router-dom'
+
+const pages = [
+    {name: 'Home', linkTo: '/'},
+    {name: 'Cities', linkTo: '/cities'},
+    {name: 'NewCity', linkTo: '/newcity'},
+    
+]
+
+const linkCreator = (page) => <LinkRouter className="Footer-link" to={page.linkTo}>{page.name}</LinkRouter>
 
 function Footer() {
 
@@ -9,10 +19,15 @@ function Footer() {
     return (
         <div className="Footer-container">
             <footer>
-                <div className="Footer-nav" >
-                    <img src="images/logo-white.png" alt="logo" onClick={scrollToTop}></img>
-                    <a>Terms and Conditions</a>
-                    <a>Contact Us</a>
+                <img src="images/logo-white.png" alt="logo" onClick={scrollToTop}></img>
+                <div className="Footer-nav">
+                    <nav>
+                        {pages.map(linkCreator)}
+                    </nav>
+                    <div>
+                        <a>Terms and Conditions</a>
+                        <a>Contact Us</a>
+                    </div>
                 </div>
                 <nav className="Footer-social">
                     <ul>
