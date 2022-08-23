@@ -1,10 +1,10 @@
 import Footer from '../components/Footer';
-// import Header from '../components/Header';
+import Header from '../components/Header';
 
 function CitiesLayout(props) {
     return (
         <>
-            {/* <Header /> */}
+            {<Header />}
             {props.children}
             <Footer />
         </>

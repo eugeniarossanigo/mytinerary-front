@@ -23,7 +23,7 @@
     text-shadow: 1px 1px 2px orange;
     font-size: 1.5rem;
 }
-.Welcome-main a {
+.Welcome-btn {
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -40,11 +40,11 @@
     font-size: 1.5rem;
     font-weight: 700;
 }
-.Welcome-main a:hover {
+.Welcome-btn:hover {
     transition: 1s ease-in-out;
     transform: scale(1.1);
     background: rgba(255, 166, 0, 0.5);
 }
-.Welcome-main a:hover svg {
+.Welcome-btn:hover svg {
     stroke-dashoffset: -480;
 }
