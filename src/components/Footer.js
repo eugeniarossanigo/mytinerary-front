@@ -1,11 +1,16 @@
 import '../styles/Footer.css';
 
 function Footer() {
+
+    const scrollToTop = () => {
+        window.scrollTo(0,0)
+    }
+
     return (
         <div className="Footer-container">
             <footer>
-                <img src="images/logo-white.png"></img>
                 <div className="Footer-nav" >
+                    <img src="images/logo-white.png" alt="logo" onClick={scrollToTop}></img>
                     <a>Terms and Conditions</a>
                     <a>Contact Us</a>
                 </div>
