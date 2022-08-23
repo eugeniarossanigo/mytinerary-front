@@ -6,18 +6,18 @@ import CitiesLayout from '../layouts/CitiesLayout'
 function Home() {
 
   const citiesArray = [
-    {_id: 1, url: "images/nature2.jpg", title: "Bariloche"},
-    {_id: 2, url: "images/nature2.jpg", title: "San Martín de los Andes"},
-    {_id: 3, url: "images/nature2.jpg", title: "Villa la Angostura"},
-    {_id: 4, url: "images/nature2.jpg", title: "El Bolsón"},
-    {_id: 5, url: "images/nature2.jpg", title: "Ciudad5"},
-    {_id: 6, url: "images/nature2.jpg", title: "Ciudad6"},
-    {_id: 7, url: "images/nature2.jpg", title: "Ciudad7"},
-    {_id: 8, url: "images/nature2.jpg", title: "Ciudad8"},
-    {_id: 9, url: "images/nature2.jpg", title: "Ciudad9"},
-    {_id: 10, url: "images/nature2.jpg", title: "Ciudad10"},
-    {_id: 11, url: "images/nature2.jpg", title: "Ciudad11"},
-    {_id: 12, url: "images/nature2.jpg", title: "Ciudad12"}
+    {_id: 1, url: "images/buenosaires.jpg", title: "Buenos Aires"},
+    {_id: 2, url: "images/cordoba.jpg", title: "Cordoba"},
+    {_id: 3, url: "images/mendoza.jpg", title: "Mendoza"},
+    {_id: 4, url: "images/santacruz.jpg", title: "Santa Cruz"},
+    {_id: 5, url: "images/santafe.jpg", title: "Santa Fe"},
+    {_id: 6, url: "images/tierradelfuego.jpg", title: "Tierra del Fuego"},
+    {_id: 7, url: "images/tucuman.jpg", title: "Tucuman"},
+    {_id: 8, url: "images/santacruz.jpg", title: "Santa Cruz"},
+    {_id: 9, url: "images/chubut.jpg", title: "Chubut"},
+    {_id: 10, url: "images/corrientes.jpg", title: "Corrientes"},
+    {_id: 11, url: "images/sanluis.jpg", title: "San Luis"},
+    {_id: 12, url: "images/neuquen.jpg", title: "Neuquen"}
 ]
 
   return (
