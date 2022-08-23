@@ -11,10 +11,15 @@ const pages = [
 const linkCreator = (page) => <LinkRouter className="Footer-link" to={page.linkTo}>{page.name}</LinkRouter>
 
 function Footer() {
+
+    const scrollToTop = () => {
+        window.scrollTo(0,0)
+    }
+
     return (
         <div className="Footer-container">
             <footer>
-                <img src="images/logo-white.png"></img>
+                <img src="images/logo-white.png" alt="logo" onClick={scrollToTop}></img>
                 <div className="Footer-nav">
                     <nav>
                         {pages.map(linkCreator)}

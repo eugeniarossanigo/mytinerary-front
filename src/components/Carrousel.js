@@ -49,7 +49,7 @@ function Carrousel(props) {
 
   return (
     <>
-        <div class="Carrousel-main">
+        <div className="Carrousel-main">
         <h2>Popular MYtineraries</h2>
         <div className="Carrousel-container">
             <Arrow icon={"./images/arrow-left.png"} click={previousSlide} />

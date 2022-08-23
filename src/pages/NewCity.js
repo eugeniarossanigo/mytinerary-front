@@ -6,6 +6,41 @@ function NewCity() {
             <CitiesLayout>
                 <main>
                     <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
+                    <h2>NEW CITY</h2>
                 </main>
             </CitiesLayout>
         </>
