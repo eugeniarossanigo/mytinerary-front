@@ -21,15 +21,17 @@
 }
 .Carrousel-pic img{
     width: 100%;
-    object-fit: contain;  
+    object-fit: cover;
+    height: 20rem;  
 }
 h2{
     font-size: 2rem;
     margin-top: 1rem;
-   
 }
 h3{
-    font-size: 1rem;
-    transform: translatey(-2rem);
+    font-size: 3rem;
+    transform: translatey(-5rem);
     text-align: center;
+    text-shadow: 2px 2px black;
+    color:white;
 }
