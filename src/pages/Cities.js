@@ -3,7 +3,11 @@ import CitiesLayout from '../layouts/CitiesLayout'
 function Cities() {
     return (
         <>
-            <CitiesLayout />
+            <CitiesLayout>
+                <main>
+                    <h2>CITIES</h2>
+                </main>
+            </CitiesLayout>
         </>
     );
 }

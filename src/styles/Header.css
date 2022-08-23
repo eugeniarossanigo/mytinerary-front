@@ -1,0 +1,24 @@
+.Header-container{
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 75%;
+    color: #1E1A1D;
+}
+header h1{
+    font-size: 3rem;
+}
+.Header-link{
+    font-size: 1.8rem;
+    margin-right: 1.5rem;
+    text-decoration: none;
+    color: #1E1A1D;
+}
+.Header-link img{
+    width: 1.8rem;
+}
