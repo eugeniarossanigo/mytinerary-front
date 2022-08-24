@@ -21,15 +21,16 @@
 .Welcome-text p{
     color: #fff;
     text-shadow: 1px 1px 2px orange;
-    font-size: 1.5rem;
+    font-size: 2rem;
+    margin: 0 2rem;
 }
 .Welcome-btn {
     text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 180px;
-    height: 60px;
+    width: 17rem;
+    height: 5rem;
     cursor: pointer;
     background: transparent;
     border: 1px solid rgba(255, 166, 0, 0.616);
@@ -37,7 +38,7 @@
     outline: none;
     transition: 1s ease-in-out;
     color: white;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-weight: 700;
 }
 .Welcome-btn:hover {
