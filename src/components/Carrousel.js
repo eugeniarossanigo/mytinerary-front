@@ -10,13 +10,13 @@ function Carrousel(props) {
     const [idInterval, setIdInterval] = useState()
     const interval = props.interval * 1000
     
-    // useEffect(() => {
-    //     let idNew = setInterval(function () {
-    //         nextSlide()
-    //     }, interval)
-    //     setIdInterval(idNew)
-    //     return () => clearInterval(idNew)
-    // }, [start])
+    useEffect(() => {
+        let idNew = setInterval(function () {
+            nextSlide()
+        }, interval)
+        setIdInterval(idNew)
+        return () => clearInterval(idNew)
+    }, [start])
 
     let previousSlide = () => {
         if (start >= range) {
@@ -26,7 +26,7 @@ function Carrousel(props) {
             setStart(cities.length-range)
             setEnd(cities.length)
         }
-        // clearInterval(idInterval)
+        clearInterval(idInterval)
     }
 
     let nextSlide = () => {
@@ -37,7 +37,7 @@ function Carrousel(props) {
             setStart(0)
             setEnd(range)
         }
-        // clearInterval(idInterval)
+        clearInterval(idInterval)
     }
 
     const citiesView = (city) => (
@@ -49,7 +49,6 @@ function Carrousel(props) {
 
   return (
     <>
-        {/* <div className="Scroll-logo" onClick={scrollToTop}></div> */}
         <div className="Carrousel-main">
         <h2>Popular MyTineraries</h2>
         <div className="Carrousel-container">
