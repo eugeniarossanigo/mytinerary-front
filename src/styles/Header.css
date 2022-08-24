@@ -1,5 +1,5 @@
 .Header-container{
-    height: 8vh;
+    height: 10vh;
     display: flex;
     justify-content: center;
 }
@@ -12,6 +12,25 @@ header{
 }
 header h1{
     font-size: 3rem;
+    text-shadow: 1px 1px #ba3f1dc3;
+}
+header nav{
+    display: flex;
+    justify-content: space-between;
+}
+.Header-logs ul {
+    position: absolute;
+    padding: .7rem;
+    background-color: #DFAA5E;
+    transform: translate(-6rem, 1.1rem);
+    border-radius: .2rem;
+}
+header li{
+    list-style: none;
+}
+header button{
+    background-color: transparent;
+    border: none;
 }
 .HamburguerMenu {
     display: none;
@@ -40,14 +59,37 @@ header h1{
     margin-right: 1.5rem;
     text-decoration: none;
     color: #1E1A1D;
+    padding: .5rem;
+}
+.NavigationMenu .Header-link:hover{
+    font-weight: 600;
+    box-shadow: #377771 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+    border-radius: .3rem;
+    transition: 0.5s;
 }
 .Header-link img{
     width: 1.8rem;
+     padding: .3rem;
 }
 .Header-link-log{
     text-decoration: none;
     font-size: 1.4rem;
     color: #000;
+}
+
+
+@media screen and (max-width: 1024px){
+    .Header-link{
+        font-size: 1.3rem;
+        margin-right: 1.5rem;
+        text-decoration: none;
+        color: #1E1A1D;
+        padding: .1rem;
+    }
+    header{
+        width: 95%;
+    }
 }
 
 @media screen and (max-width: 768px){
