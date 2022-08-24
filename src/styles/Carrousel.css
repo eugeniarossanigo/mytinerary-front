@@ -28,7 +28,6 @@ main {
     align-items: center;
     border-radius: .5rem;
     box-shadow: 2px 2px 4px #1E1A1D;
-
 }
 .Carrousel-pic img {
     margin-top: 5%;
@@ -45,6 +44,7 @@ main {
     color: #1E1A1D;
     text-transform: uppercase;
     letter-spacing: .8rem;
+    text-align: center;
 }
 .Carrousel-pic h3 {
     font-size: 2rem;
@@ -73,11 +73,37 @@ main {
 }
 
 @media screen and (max-width: 1440px) {
+    .Carrousel-main {
+        width: 80%;
+    }
     .Carrousel-pic {
         width: 23rem;
         height: 15rem;
     }
     .Carrousel-pic h3 {
         font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .Carrousel-main {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .Carrousel-main {
+        width: 90%;
+    }
+    .Carrousel-main h2 {
+        font-size: 1.9rem;
+        letter-spacing: .5rem;
+    }
+    .Carrousel-pic {
+        width: 19rem;
+        height: 12rem;
+    }
+    .Carrousel-pic h3 {
+        font-size: 1.2rem;
     }
 }

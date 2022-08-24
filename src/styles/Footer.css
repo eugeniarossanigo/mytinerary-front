@@ -84,11 +84,18 @@ footer img:hover{
     border-radius: 1rem;
     transition: 0.5s;
 }
-@media screen and (max-width: 1024px) {
+
+
+@media screen and (max-width: 1440px) {
     footer {
         justify-content: center;
-        flex-direction: column;
         gap: 2rem;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    footer {
+        flex-direction: column;
     }
     .Footer-link{
         margin: 0 .5rem;
@@ -97,6 +104,13 @@ footer img:hover{
     .Footer-nav div a{
         margin: 0 .5rem;
     }
+    .Footer-social ul{
+        margin-bottom: 1rem;
+    }
 }
 
-
+@media screen and (max-width: 768px) {
+    footer {
+        width: 85%;
+    }
+}
