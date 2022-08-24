@@ -1,7 +1,6 @@
 import '../styles/App.css';
 import Welcome from '../components/Welcome';
 import Carrousel from '../components/Carrousel';
-import CitiesLayout from '../layouts/CitiesLayout'
 
 function Home() {
 
@@ -22,12 +21,10 @@ function Home() {
 
   return (
     <>
-        <CitiesLayout>
-            <Welcome />
-            <main>
-                <Carrousel data={citiesArray} range={4} interval={3}/>
-            </main>
-        </CitiesLayout>
+        <Welcome />
+        <main>
+            <Carrousel data={citiesArray} range={4} interval={3}/>
+        </main>
     </>
   );
 }
