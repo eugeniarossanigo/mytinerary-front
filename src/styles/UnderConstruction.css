@@ -1,0 +1,15 @@
+.under-container{
+    min-height: 75.7vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.under-container img{
+    width: 10rem;
+}
+.under-container h2{
+    font-size: 4rem;
+    color:#1E1A1D;
+}
+
