@@ -10,6 +10,7 @@ footer{
     width: 75%;
     align-items: center;
     padding: 1rem 0;
+    flex-wrap: wrap;
 }
 footer img{
     width: 8rem;
@@ -26,9 +27,11 @@ footer img{
     color: #ffffff;
     font-size: 1rem;
     font-weight: 600;
+    text-decoration: none;
 }
 .Footer-nav div a:hover{
-    color: orangered;
+    color: #BA3F1D;
+    transition: 0.5s;
 }
 .Footer-social ul{
     display: flex;
@@ -51,7 +54,7 @@ footer img{
     border-radius: 50px;
     text-align: center;
     font-size: 30px;
-    box-shadow: 2px 2px 4px rgba(236, 130, 92, 0.829);
+    box-shadow: 2px 2px 4px #BA3F1D;
     z-index: 100;
     transition: 0.5s;
 }
@@ -63,10 +66,34 @@ footer img{
     text-decoration: none;
     color: #1E1A1D; 
     margin: 0 1rem;
+    padding: .3rem;
 }
 .Footer-link:hover{
-    color:#D7E7E3;
-    
+    font-weight: 600;
+    box-shadow:#BA3F1D 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+    border-radius: .3rem;
+    transition: 0.5s;
+}
+footer img:hover{
+    box-shadow:#BA3F1D 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+    border-radius: 1rem;
+    transition: 0.5s;
+}
+@media screen and (max-width: 1024px) {
+    footer {
+        justify-content: center;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .Footer-link{
+        margin: 0 .5rem;
+        font-size: 1.5rem;
+    }
+    .Footer-nav div a{
+        margin: 0 .5rem;
+    }
 }
 
 
