@@ -5,28 +5,28 @@ import {useState, useEffect} from 'react'
 function Carrousel(props) {
     const cities = props.data
     const range = props.range
+    const [start, setStart] = useState(0)
+    const [end, setEnd] = useState(start + range)
+    const [idInterval, setIdInterval] = useState()
     const interval = props.interval * 1000
-    let [start, setStart] = useState(0)
-    let [end, setEnd] = useState(start + range)
-    let [idInterval, setIdInterval] = useState()
     
-    // useEffect(() => {
-    //     let idNew = setInterval(function () {
-    //         nextSlide()
-    //     }, interval)
-    //     setIdInterval(idNew)
-    //     return () => clearInterval(idInterval)
-    // }, [start])
+    useEffect(() => {
+        let idNew = setInterval(function () {
+            nextSlide()
+        }, interval)
+        setIdInterval(idNew)
+        return () => clearInterval(idNew)
+    }, [start])
 
     let previousSlide = () => {
         if (start >= range) {
             setStart(start-range)
             setEnd(end-range)
         } else {
-            start = cities.length
-            end = start + range
-            previousSlide()
+            setStart(cities.length-range)
+            setEnd(cities.length)
         }
+        clearInterval(idInterval)
     }
 
     let nextSlide = () => {
@@ -34,15 +34,15 @@ function Carrousel(props) {
             setStart(start+range)
             setEnd(end+range)
         } else {
-            start = 0 - range
-            end = start + range
-            nextSlide()
+            setStart(0)
+            setEnd(range)
         }
+        clearInterval(idInterval)
     }
 
     const citiesView = (city) => (
         <div key={city._id} className="Carrousel-pic">
-            <img src={city.url}/>
+            <img src={city.url} alt="city"/>
             <h3>{city.title}</h3>
         </div>
     )
