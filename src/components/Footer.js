@@ -18,6 +18,8 @@ function Footer() {
         })
     }
 
+    const year = new Date().getFullYear()
+
     return (
         <div className="Footer-container">
             <footer>
@@ -29,6 +31,9 @@ function Footer() {
                     <div>
                         <a href="https://www.google.com/search?channel=fs&client=ubuntu&q=terminos+y+condiciones" rel="noopener">Terms and Conditions</a>
                         <a href="mailto:mytinerary@gmail.com">Contact Us</a>
+                    </div>
+                    <div>
+                        <p>Site developed by AlmostHackers © {year}</p>
                     </div>
                 </div>
                 <nav className="Footer-social">

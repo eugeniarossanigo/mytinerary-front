@@ -32,25 +32,52 @@ header button{
     background-color: transparent;
     border: none;
 }
-.Header-link{
+.HamburguerMenu {
+    display: none;
+}
+.NavigationMenu {
+    display: flex;
+    justify-content: space-between;
+}
+.NavigationMenu ul {
+    position: absolute;
+    padding: .7rem;
+    background-color: #DFAA5E;
+    transform: translate(-6rem, 1.1rem);
+    border-radius: .2rem;
+}
+.NavigationMenu li{
+    list-style: none;
+}
+.NavigationMenu button{
+    background-color: transparent;
+    border: none;
+}
+.NavigationMenu .Header-link{
+    text-decoration: none;
     font-size: 1.8rem;
     margin-right: 1.5rem;
     text-decoration: none;
     color: #1E1A1D;
     padding: .5rem;
 }
-.Header-link img{
-    width: 1.8rem;
-    padding: .3rem;
-}
-
-.Header-link:hover{
+.NavigationMenu .Header-link:hover{
     font-weight: 600;
     box-shadow: #377771 2px 8px 8px -5px;
     transform: translate3d(0, 2px, 0);
     border-radius: .3rem;
     transition: 0.5s;
 }
+.Header-link img{
+    width: 1.8rem;
+     padding: .3rem;
+}
+.Header-link-log{
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: #000;
+}
+
 
 @media screen and (max-width: 1024px){
     .Header-link{
@@ -65,3 +92,26 @@ header button{
     }
 }
 
+@media screen and (max-width: 768px){
+    .NavigationMenu {
+        display: none;
+    }
+    .HamburguerMenu {
+        display: flex;
+        flex-direction: column;
+    }
+    .HamburguerMenu .Hamburguer-logs{
+        background-color: #DFAA5E;
+        padding: 1.5rem 2rem;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        transform: translate(-6rem, 1rem);
+        gap: 1rem
+    }
+    .HamburguerMenu a {
+        text-decoration: none;
+        color: #000;
+        font-size: 1.2rem;
+    }
+}

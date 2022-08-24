@@ -12,14 +12,14 @@ function App() {
     <>
         <BrowserRouter>
           <ScrollToTop />
-            <CitiesLayout>
-              <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path='/cities' element={<Cities />} />
-                <Route path='/newcity' element={<NewCity />} />
-                <Route path='*' element={<UnderConstruction />} />
-              </Routes>
-            </CitiesLayout>
+          <CitiesLayout>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/cities' element={<Cities />} />
+              <Route path='/newcity' element={<NewCity />} />
+              <Route path='*' element={<UnderConstruction />} />
+            </Routes>
+          </CitiesLayout>
         </BrowserRouter>
     </>
     );

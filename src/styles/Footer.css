@@ -75,6 +75,9 @@ footer img{
     border-radius: .3rem;
     transition: 0.5s;
 }
+.Footer-nav p {
+    font-size: .8rem;    
+}
 footer img:hover{
     box-shadow:#BA3F1D 2px 8px 8px -5px;
     transform: translate3d(0, 2px, 0);

@@ -1,6 +1,8 @@
 import '../styles/Header.css';
 import {Link as LinkRouter} from 'react-router-dom'
-import { useState } from 'react';
+import {useState} from 'react'
+import NavigationMenu from './NavigationMenu';
+import HamburguerMenu from './HamburguerMenu';
 
 const pages = [
     {_id: 101, name: 'Home', linkTo: '/'},
@@ -12,29 +14,32 @@ const linkCreator = (page) => <LinkRouter key={page._id} className="Header-link"
 
 function Header() {
     const [open, setOpen] = useState(false)
+    const handleClick = () => {
+        if (open) {
+            setOpen(false)
+        } else {
+            setOpen(true)
+        }
+    }
+
+    const [openMenu, setOpenMenu] = useState(false)
+    const handleClickHamburguer = () => {
+        if (openMenu) {
+            setOpenMenu(false)
+        } else {
+            setOpenMenu(true)
+        }
+    }
+
     return (
     <>
-    <div className='Header-container'>
-        <header>
-            <h1>MyTinerary</h1>
-            <nav>
-                    {pages.map(linkCreator)}
-                    <div>
-                        <button className="Header-link"><img src='./images/add-user.png' alt="add-user"></img></button>
-                        <div className='Header-logs'>
-                            {
-                            open
-                                ? <ul>
-                                    <li><LinkRouter className="Header-link" to='/'>Log in</LinkRouter></li>
-                                    <li><LinkRouter className="Header-link" to='/'>Sign up</LinkRouter></li>
-                                </ul>
-                                : null
-                            }
-                        </div>
-                    </div>
-                </nav>
-        </header>
-    </div>
+        <div className='Header-container'>
+            <header>
+                <h1>MyTinerary</h1>
+                <NavigationMenu pages={pages} click={handleClick} link={linkCreator} open={open}/>
+                <HamburguerMenu pages={pages} click={handleClickHamburguer} link={linkCreator} openMenu={openMenu}/>
+            </header>
+        </div>
     </>
     );
     }

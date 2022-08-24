@@ -49,6 +49,7 @@ function Carrousel(props) {
 
   return (
     <>
+        {/* <div className="Scroll-logo" onClick={scrollToTop}></div> */}
         <div className="Carrousel-main">
         <h2>Popular MyTineraries</h2>
         <div className="Carrousel-container">
