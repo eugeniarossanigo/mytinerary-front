@@ -2,7 +2,7 @@ import {Link as LinkRouter} from 'react-router-dom'
 
 export default function HamburguerMenu(props) {
     const pages = props.pages
-    const open = props.openMenu
+    const open = props.open
 
     return (
         <>

@@ -93,9 +93,18 @@ footer img:hover{
     }
 }
 
+@media screen and (max-width: 1200px) {
+    .Footer-nav {
+        margin: 0 1rem;
+        order: 2;
+    }
+}
+
 @media screen and (max-width: 1024px) {
     footer {
+        width: 85%;
         flex-direction: column;
+        flex-wrap: nowrap;
     }
     .Footer-link{
         margin: 0 .5rem;
@@ -106,11 +115,5 @@ footer img:hover{
     }
     .Footer-social ul{
         margin-bottom: 1rem;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    footer {
-        width: 85%;
     }
 }
