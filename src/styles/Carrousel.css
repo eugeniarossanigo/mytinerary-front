@@ -1,0 +1,109 @@
+main {
+    background-color: #D7E7E3;
+}
+.Carrousel-main {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0;
+}
+.Carrousel-container {
+    display: flex;
+    margin: 2rem 0;
+}
+.Carrousel-img-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+    justify-content: space-evenly;
+    gap: 1rem;
+}
+.Carrousel-pic {
+    width: 40rem;
+    height: 30rem;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: .5rem;
+    box-shadow: 2px 2px 4px #1E1A1D;
+}
+.Carrousel-pic img {
+    margin-top: 5%;
+    width: 90%;
+    object-fit: cover;
+    height: 72%;
+    border-radius: .5rem .5rem 0 0;
+    box-shadow: 2px 2px 4px #1E1A1D;
+}
+.Carrousel-main h2 {
+    font-size: 2.5rem;
+    margin-top: 1rem;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.368);
+    color: #1E1A1D;
+    text-transform: uppercase;
+    letter-spacing: .8rem;
+    text-align: center;
+}
+.Carrousel-pic h3 {
+    font-size: 2rem;
+    transform: translateY(2rem);
+    text-align: center;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.368);
+    color: #1E1A1D;
+}
+.Carrousel-pic:hover {
+    box-shadow: #1E1A1D 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+    border-radius: 1rem;
+    transition: 0.5s;
+    opacity: .7;
+}
+
+@media screen and (max-width: 1900px) {
+    .Carrousel-pic {
+        width: 30rem;
+        height: 20rem;
+    }
+    .Carrousel-pic h3 {
+        font-size: 2rem;
+        transform: translateY(.8rem);
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .Carrousel-main {
+        width: 80%;
+    }
+    .Carrousel-pic {
+        width: 23rem;
+        height: 15rem;
+    }
+    .Carrousel-pic h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .Carrousel-main {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .Carrousel-main {
+        width: 90%;
+    }
+    .Carrousel-main h2 {
+        font-size: 1.9rem;
+        letter-spacing: .5rem;
+    }
+    .Carrousel-pic {
+        width: 19rem;
+        height: 12rem;
+    }
+    .Carrousel-pic h3 {
+        font-size: 1.2rem;
+    }
+}

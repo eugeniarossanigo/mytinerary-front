@@ -1,0 +1,52 @@
+function Cities() {
+    return (
+        <>
+            <main>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+                <h2>CITIES</h2>
+            </main>
+        </>
+    );
+}
+
+export default Cities;

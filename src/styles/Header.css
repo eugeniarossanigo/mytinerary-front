@@ -1,0 +1,121 @@
+.Header-container{
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    background-color: #f7f3eeee
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 75%;
+    color: #1E1A1D;
+}
+header h1{
+    font-size: 3rem;
+    text-shadow: 1px 1px #ba3f1dc3;
+}
+header nav{
+    display: flex;
+    justify-content: space-between;
+}
+header button{
+    background-color: transparent;
+    border: none;
+}
+.HamburguerMenu {
+    display: none;
+}
+.NavigationMenu {
+    display: flex;
+    justify-content: space-between;
+}
+.NavigationMenu ul {
+    display: flex;
+    flex-direction: column;
+    width: 8rem;
+    position: absolute;
+    padding: 1rem;
+    background-color: #DFAA5E;
+    transform: translate(-4.5rem, 1.1rem);
+    border-radius: .2rem;
+    gap: 1rem;
+}
+.NavigationMenu li{
+    list-style: none;
+}
+.NavigationMenu button{
+    background-color: transparent;
+    border: none;
+}
+.NavigationMenu .Header-link{
+    text-decoration: none;
+    font-size: 1.8rem;
+    margin-right: 1.5rem;
+    text-decoration: none;
+    color: #1E1A1D;
+    padding: .5rem;
+}
+.NavigationMenu .Header-link:hover{
+    font-weight: 600;
+    box-shadow: #377771 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+    border-radius: .3rem;
+    transition: 0.5s;
+}
+.Header-link img{
+    width: 1.8rem;
+     padding: .3rem;
+}
+.Header-link-log{
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: #000;
+}
+.NavigationMenu li a:hover{
+    color: #377771;
+}
+
+@media screen and (max-width: 1024px){
+    .Header-link{
+        font-size: 1.3rem;
+        margin-right: 1.5rem;
+        text-decoration: none;
+        color: #1E1A1D;
+        padding: .1rem;
+    }
+    header{
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 768px){
+    header h1 {
+        font-size: 2.5rem;
+    }
+    .NavigationMenu {
+        display: none;
+    }
+    .HamburguerMenu {
+        display: flex;
+        flex-direction: column;
+    }
+    .HamburguerMenu .Hamburguer-logs{
+        background-color: #DFAA5E;
+        padding: 1.5rem 2rem;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        transform: translate(-8.5rem, 1.5rem);
+        gap: 1rem;
+        border-radius: .2rem;
+    }
+    .HamburguerMenu a {
+        text-decoration: none;
+        color: #000;
+        font-size: 1.2rem;
+    }
+    .HamburguerMenu a:hover{
+        color: #377771;
+    }
+}

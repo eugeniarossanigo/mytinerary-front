@@ -1,0 +1,12 @@
+.Arrow-btn{
+    background-color: transparent;
+    border: none;
+}
+.Arrow-btn img {
+    width: 2rem;
+}
+.Arrow-btn :hover{
+    transform: scale(1.2);
+    transition: 0.5s;
+    border-radius: 50%;
+}
