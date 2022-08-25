@@ -22,22 +22,13 @@ function Header() {
         }
     }
 
-    const [openMenu, setOpenMenu] = useState(false)
-    const handleClickHamburguer = () => {
-        if (openMenu) {
-            setOpenMenu(false)
-        } else {
-            setOpenMenu(true)
-        }
-    }
-
     return (
     <>
         <div className='Header-container'>
             <header>
                 <h1>MyTinerary</h1>
                 <NavigationMenu pages={pages} click={handleClick} link={linkCreator} open={open}/>
-                <HamburguerMenu pages={pages} click={handleClickHamburguer} link={linkCreator} openMenu={openMenu}/>
+                <HamburguerMenu pages={pages} click={handleClick} link={linkCreator} open={open}/>
             </header>
         </div>
     </>
