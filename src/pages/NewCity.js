@@ -5,12 +5,12 @@ import React, { useRef } from "react";
 const year = new Date().getFullYear()
 
 const inputsArray = [
-                    {_id: 301, name: "photo", type: "file", src:""},
-                    {_id: 302, name: "city", type: "text"},
-                    {_id: 303, name: "country", type: "text"},
-                    {_id: 303, name: "population", type: "number", min: "1"},
-                    {_id: 303, name: "fundation", type: "number", min: "1000", max: year},
-                    {_id: 303, name: "description", type: "textarea", minlength:"10", cols: "27", rows:"5"}
+                    {_id: 301, name: "Photo", type: "file", src:""},
+                    {_id: 302, name: "City", type: "text"},
+                    {_id: 303, name: "Country", type: "text"},
+                    {_id: 303, name: "Population", type: "number", min: "1"},
+                    {_id: 303, name: "Fundation", type: "number", min: "1000", max: year},
+                    {_id: 303, name: "Description", type: "textarea", minlength:"10", cols: "27", rows:"5"}
                     ]
 
 export default function NewCity() {
@@ -33,10 +33,12 @@ export default function NewCity() {
     return (
         <>
             <main>
-                <h2>CITY</h2>
                 <form id="Form-city" onSubmit={handleChanged} ref={newInputs}>
+                <h2>CITY</h2>
                     {inputsArray.map(inputObj => <LabelInput inputObj={inputObj}/>)}
-                    <button className="Form-btn" type="submit">ENVIAR</button>
+                    <div className="button-conteiner">
+                        <button className="Form-btn" type="submit">SEND</button>
+                    </div>
                 </form>
                 <div id="Form-array"></div>
             </main>
