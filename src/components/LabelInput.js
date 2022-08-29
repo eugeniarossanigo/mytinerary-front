@@ -1,3 +1,4 @@
+import '../styles/NewCity.css'
 export default function Input(props) {
         const inputs = props.inputObj
         
