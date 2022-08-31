@@ -5,7 +5,7 @@ import React, { useRef } from "react";
 const year = new Date().getFullYear()
 
 const inputsArray = [
-                    {_id: 301, name: "Photo", type: "file", src:""},
+                    {_id: 301, name: "Photo", type: "text"},
                     {_id: 302, name: "City", type: "text"},
                     {_id: 303, name: "Country", type: "text"},
                     {_id: 303, name: "Population", type: "number", min: "1"},
