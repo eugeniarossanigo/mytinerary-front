@@ -18,7 +18,7 @@ function Cities() {
             <main>
                 <div className="Citycard-grid">
                     {citiesArray.map((city)=> (
-                        <CityCard data={city} />
+                        <CityCard data={city} linkTo={city._id} />
                     ))}
                 </div>
             </main>
