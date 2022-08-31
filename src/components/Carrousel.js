@@ -2,6 +2,7 @@ import '../styles/Carrousel.css'
 import Arrow from './Arrow';
 import {useState, useEffect} from 'react'
 import axios from 'axios';
+import {Link as LinkRouter} from 'react-router-dom'
 
 function Carrousel(props) {
     const range = props.range
@@ -50,10 +51,12 @@ function Carrousel(props) {
     }
 
     const citiesView = (city) => (
-        <div className="Carrousel-pic">
-            <img src={city.photo} alt="city"/>
-            <h3>{city.city}</h3>
-        </div>
+        <LinkRouter className="card" to={"cities/"+city._id}>
+            <div className="Carrousel-pic">
+                <img src={city.photo} alt="city"/>
+                <h3>{city.city}</h3>
+            </div>
+        </LinkRouter>
     )
 
   return (
