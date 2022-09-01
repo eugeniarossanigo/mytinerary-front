@@ -10,7 +10,7 @@ export default function InputForm(props) {
     return (
         <>
             <div>
-                <input id="input-form" type="search" placeholder="🔍 Rosario" onChange={findParam}></input>
+                <input id="input-form" type="search" placeholder="🔍 e.g. Rosario" onChange={findParam}></input>
             </div>
         </>
     )
