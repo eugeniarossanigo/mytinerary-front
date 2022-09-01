@@ -8,6 +8,7 @@ import ScrollToTop from '../components/ScrollToTop';
 import CitiesLayout from '../layouts/CitiesLayout';
 import Details from './Details';
 import Carrousel from '../components/Carrousel';
+import EditCity from './EditCity';
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
               <Route path='/cities' element={<Cities />} />
               <Route path='/cities/:id' element={<Details />} />
               <Route path='/cities/:id' element={<Carrousel />} />
+              <Route path='/editcity' element={<EditCity />} />
               <Route path='/newcity' element={<NewCity />} />
               <Route path='*' element={<UnderConstruction />} />
             </Routes>
