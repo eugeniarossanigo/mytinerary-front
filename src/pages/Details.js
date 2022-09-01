@@ -5,19 +5,14 @@ import axios from "axios";
 
 export default function Details() {
     const {id} = useParams()
-    console.log(useParams())
-    console.log(id)
-
     const [cityData, setCityData] = useState({}) 
     
     useEffect(() => {
         axios.get('http://localhost:4000/cities/'+id)
         .then(response => {
-            console.log(response.data.response)
             setCityData(response.data.response)
         })
     }, [])
-
 
     return (
         <div className="detail-container">
