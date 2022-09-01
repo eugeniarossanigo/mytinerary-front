@@ -6,10 +6,11 @@ const year = new Date().getFullYear()
 
 const inputsArray = [
                     {_id: 301, name: "Photo", type: "text"},
+                    {_id: 302, name: "Province", type: "text"},
                     {_id: 302, name: "City", type: "text"},
                     {_id: 303, name: "Country", type: "text"},
-                    {_id: 303, name: "Population", type: "number", min: "1"},
-                    {_id: 303, name: "Fundation", type: "number", min: "1000", max: year},
+                    {_id: 303, name: "Population", type: "number", min: "1000", max: "100000000"},
+                    {_id: 303, name: "Fundation", type: "date", max: year},
                     {_id: 303, name: "Description", type: "textarea", minlength:"10", cols: "27", rows:"5"}
                     ]
 

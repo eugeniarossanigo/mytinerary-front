@@ -20,7 +20,6 @@ function App() {
               <Route path='/' element={<Home />} />
               <Route path='/cities' element={<Cities />} />
               <Route path='/cities/:id' element={<Details />} />
-              <Route path='/cities/:id' element={<Carrousel />} />
               <Route path='/editcity' element={<EditCity />} />
               <Route path='/newcity' element={<NewCity />} />
               <Route path='*' element={<UnderConstruction />} />
