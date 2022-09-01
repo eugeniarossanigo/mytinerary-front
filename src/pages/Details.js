@@ -26,7 +26,7 @@ export default function Details() {
                 </div>
                 <div className="text-detail">
                     <h2>DETAILS</h2>
-                    <div className="caracteristicas">
+                    <div className="characteristics">
                         <h3>City:</h3>
                         <p>{cityData.city}</p>
                         <h3>Province:</h3>

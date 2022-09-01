@@ -37,11 +37,6 @@ body {
     width: 100%;
 }
 
-@media(min-width: 960px) {
-    .Citycard-grid {
-        grid-template-columns: repeat(1, 1fr);
-    }
-}
 
 .card {
     list-style: none;
@@ -97,8 +92,20 @@ body {
 
 .card__heading {
     color: var(--text-lighter);
-    font-size: 3.5rem;
+    font-size: 2rem;
     text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
     line-height: 1.4;
     word-spacing: 100vw;
+}
+@media(min-width: 1440px) {
+    .Citycard-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media(max-width: 1440px){
+    .Citycard-grid{
+        display: flex;
+        flex-direction: column;
+        align-items: center
+    }
 }
