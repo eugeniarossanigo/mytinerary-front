@@ -3,7 +3,7 @@ import CityCard from '../components/CityCard';
 import { useEffect, useState } from 'react';
 import InputForm from '../components/inputForm';
 
-function Cities(props) {
+function Cities() {
 
     const [citiesArray, setCitiesArray] = useState([])
     const [inputParam, setInputParam] = useState("")
