@@ -1,7 +1,6 @@
 import LabelInput from "../components/LabelInput";
 import '../styles/EditCity.css'
 
-
 const inputsArray = [
     {_id: 301, name: "Photo", type: "text"},
     {_id: 302, name: "City", type: "text"},
