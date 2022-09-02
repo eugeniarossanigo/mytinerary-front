@@ -38,7 +38,6 @@ export default function NewCity() {
         const formCity = document.getElementById('Form-city')
         const formArray = document.getElementById('Form-array')
         const formObject = Object.fromEntries(new FormData(newInputs.current))
-        console.log(formObject)
         setNewData(formObject)
         formArray.innerHTML += citiesView(formObject)
         formCity.reset()
