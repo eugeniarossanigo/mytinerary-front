@@ -6,15 +6,11 @@ import { Link as LinkRouter } from 'react-router-dom'
 
 export default function Details() {
     const { id } = useParams()
-    console.log(useParams())
-    console.log(id)
-
     const [cityData, setCityData] = useState({})
     
     useEffect(() => {
         axios.get('http://localhost:4000/cities/' + id)
         .then(response => {
-            console.log(response.data.response)
             setCityData(response.data.response)
         })
     }, [])
@@ -30,7 +26,7 @@ export default function Details() {
                 </div>
                 <div className="text-detail">
                     <h2>DETAILS</h2>
-                    <div className="caracteristicas">
+                    <div className="characteristics">
                         <h3>City:</h3>
                         <p>{cityData.city}</p>
                         <h3>Province:</h3>

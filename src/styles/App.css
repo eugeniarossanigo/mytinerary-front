@@ -13,3 +13,6 @@ main {
     align-items: center;
     min-height: 75vh;
 }
+a{
+    text-decoration: none !important;
+}
