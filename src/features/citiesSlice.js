@@ -1,21 +1,21 @@
-import {createSlide} from '@reduxjs/toolkit'
-import axios from 'axios'
+// import {createSlide} from '@reduxjs/toolkit'
+// import axios from 'axios'
 
-export const citiesSlice = createSlice({
-    name : 'cities',
+// export const citiesSlice = createSlice({
+//     name : 'cities',
 
-    initialState : {
-        cities : []
-    },
+//     initialState : {
+//         cities : []
+//     },
 
-    reducers : {
-        fetchFromServer : (state) => {
-            state.cities = [{
+//     reducers : {
+//         fetchFromServer : (state) => {
+//             state.cities = [{
                     
-            }]
-        }
-    }
-})
-export const {fetchFromServer} = citiesSlice.actions
+//             }]
+//         }
+//     }
+// })
+// export const {fetchFromServer} = citiesSlice.actions
 
-export default citiesSlice.reducer
+// export default citiesSlice.reducer
