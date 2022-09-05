@@ -12,11 +12,11 @@ const inputsArray = [
                     {_id: 303, name: "country", type: "text"},
                     {_id: 304, name: "photo", type: "text"},
                     {_id: 305, name: "population", type: "number", min: "1000", max: "100000000"},
-                    {_id: 306, name: "fundation", type: "date"},
+                    {_id: 306, name: "fundation", type: "date", max: year},
                     {_id: 307, name: "description", type: "textarea", minlength:"10", cols: "27", rows:"5"}
                     ]
 
-function EditCity() {
+export default function EditCity() {
     const formCity = document.getElementById('Form-city-edit')
     const formSelect = document.getElementById('Form-select')
     const [citiesArray, setCitiesArray] = useState([])
@@ -34,12 +34,11 @@ function EditCity() {
     )
     
     const [cityData, setCityData] = useState({})
-    // const {_id, city, province, country, photo, population, fundation, description} = cityData
+    const {_id, city, province, country, photo, population, fundation, description} = cityData
     const newCityData = useRef({})
 
     const handleSelect = (e) => {
         e.preventDefault()
-        console.log(selectCity.current.value)
         axios.get('http://localhost:4000/cities/'+ (selectCity.current.value))
             .then(response => {
                 setCityData(response.data.response)
@@ -48,28 +47,21 @@ function EditCity() {
 
     useEffect(() => {
         axios.put('http://localhost:4000/cities/'+ (selectCity.current.value),
-            cityData
+            {_id, city, province, country, photo, population, fundation, description}
             )
             .then(response => {
-                console.log(response.data)
+                console.log(response.data.response)
         })
     }, [cityData])
-
-    //{city, province, country, photo, population, fundation, description}
     
     const handleChanged = (e) => {
         e.preventDefault()
         const formObject = Object.fromEntries(new FormData(newCityData.current))
+        console.log(formObject)
         setCityData(formObject)
-        // axios.put('http://localhost:4000/cities/'+ (selectCity.current.value),
-        //     {_id, city, province, country, photo, population, fundation, description}
-        //     )
-        //     .then(response => {
-        //         console.log(response.data)
-        // })
         newCityData.current.reset()
         formCity.reset()
-        // formSelect.reset()
+        formSelect.reset()
     }
 
     return (
@@ -98,7 +90,6 @@ function EditCity() {
     );
 }
 
-export default EditCity
 
 
 // {inputsArray.map(inputObj => <LabelInput inputObj={inputObj}/>)}
