@@ -28,25 +28,37 @@ export default function Details() {
                     <div className="text-detail">
                         <h2>DETAILS</h2>
                         <div className="characteristics">
-                            <h3>City:</h3>
-                            <p>{cityData.city}</p>
-                            <h3>Province:</h3>
-                            <p>{cityData.province}</p>
-                            <h3>Country:</h3>
-                            <p>{cityData.country}</p>
-                            <h3>Population:</h3>
-                            <p>{cityData.population}</p>
-                            <h3>Fundation:</h3>
-                            <p>{date.getFullYear()}</p>
-                            <h3>Description:</h3>
-                            <p>{cityData.description}</p>
+                            <div>
+                                <h3>City:</h3>
+                                <p>{cityData.city}</p>
+                            </div>
+                            <div>
+                                <h3>Province:</h3>
+                                <p>{cityData.province}</p>
+                            </div>
+                            <div>
+                                <h3>Country:</h3>
+                                <p>{cityData.country}</p>
+                            </div>
+                            <div>
+                                <h3>Population:</h3>
+                                <p>{cityData.population}</p>
+                            </div>
+                            <div>
+                                <h3>Fundation:</h3>
+                                <p>{date.getFullYear()}</p>
+                            </div>
+                            <div className="description">
+                                <h3>Description:</h3>
+                                <p>{cityData.description}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>    
-                    <LinkRouter className="button-container" to={"/cities"}>
-                        <p className="button-back">BACK</p>
-                    </LinkRouter>
+            <LinkRouter className="button-container" to={"/cities"}>
+                <p className="button-back">BACK</p>
+            </LinkRouter>
         </main>
         </>
     )
