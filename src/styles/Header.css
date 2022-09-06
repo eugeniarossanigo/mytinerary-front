@@ -25,10 +25,12 @@ header button{
 }
 .HamburguerMenu {
     display: none;
+    z-index: 1;
 }
 .NavigationMenu {
     display: flex;
     justify-content: space-between;
+    z-index: 1;
 }
 .NavigationMenu ul {
     display: flex;
