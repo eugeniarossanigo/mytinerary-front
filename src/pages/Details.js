@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import axios from "axios";
 import { Link as LinkRouter } from 'react-router-dom'
 import apiURL from '../api';
+import ItineraryCard from "../components/ItineraryCard";
 
 export default function Details() {
     const { id } = useParams()
@@ -56,7 +57,8 @@ export default function Details() {
                         </div>
                     </div>
                 </div>
-            </div>    
+            </div>  
+            <ItineraryCard/>
             <LinkRouter className="Details-btn-back" to={"/cities"}>BACK</LinkRouter>
         </main>
         </>
