@@ -1,5 +1,4 @@
-// import {createSlide} from '@reduxjs/toolkit'
-// import axios from 'axios'
+// import {createSlice} from '@reduxjs/toolkit'
 
 // export const citiesSlice = createSlice({
 //     name : 'cities',
@@ -10,12 +9,9 @@
 
 //     reducers : {
 //         fetchFromServer : (state) => {
-//             state.cities = [{
-                    
-//             }]
+//             state.cities
 //         }
 //     }
 // })
 // export const {fetchFromServer} = citiesSlice.actions
-
 // export default citiesSlice.reducer
