@@ -3,6 +3,7 @@ import Arrow from './Arrow';
 import {useState, useEffect} from 'react'
 import axios from 'axios';
 import {Link as LinkRouter} from 'react-router-dom'
+import apiURL from '../api';
 
 function Carrousel(props) {
     const range = props.range
@@ -14,7 +15,7 @@ function Carrousel(props) {
     const [citiesArray, setCitiesArray] = useState([]) 
 
     useEffect(() => {
-        axios.get('http://localhost:4000/cities')
+        axios.get(apiURL+'/cities')
         .then(response => {
             setCitiesArray(response.data.response)
         })
