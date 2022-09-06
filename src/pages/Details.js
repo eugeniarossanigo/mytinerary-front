@@ -56,9 +56,7 @@ export default function Details() {
                     </div>
                 </div>
             </div>    
-            <LinkRouter className="button-container" to={"/cities"}>
-                <p className="button-back">BACK</p>
-            </LinkRouter>
+            <LinkRouter className="Details-btn-back" to={"/cities"}>BACK</LinkRouter>
         </main>
         </>
     )
