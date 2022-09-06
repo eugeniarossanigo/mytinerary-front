@@ -27,6 +27,9 @@ export default function EditCity() {
         .then(response => {
             setCitiesArray(response.data.response)
         })
+        .catch(error => {
+            console.log(error)
+        })
     }, [])
 
     const optionsSelect = (city) => (
@@ -37,12 +40,18 @@ export default function EditCity() {
     const {_id, city, province, country, photo, population, fundation, description} = cityData
     const newCityData = useRef({})
 
+    const [open, setOpen] = useState(false)
+    
     const handleSelect = (e) => {
         e.preventDefault()
         axios.get('http://localhost:4000/cities/'+ (selectCity.current.value))
             .then(response => {
+                setOpen(true)
                 setCityData(response.data.response)
-        })
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
 
     useEffect(() => {
@@ -57,35 +66,40 @@ export default function EditCity() {
     const handleChanged = (e) => {
         e.preventDefault()
         const formObject = Object.fromEntries(new FormData(newCityData.current))
-        console.log(formObject)
         setCityData(formObject)
+        setOpen(false)
         newCityData.current.reset()
         formCity.reset()
-        formSelect.reset()
     }
 
     return (
         <>
-        <div className="editCity-container">
-            <div>
-                <form id="Form-select">
-                    <select onChange={handleSelect} ref={selectCity}>
-                        <option>Select one city:</option>
-                        {citiesArray.map(optionsSelect)}
-                    </select>
-                </form>
-                <form id="Form-city-edit" onSubmit={handleChanged} ref={newCityData}>
-                    <h2>EDIT CITY</h2>
-                        {inputsArray.map((inputObj,i) => {
-                            return <LabelInput inputObj={inputObj} values={Object.values(cityData)[i]}/>
-                            }
-                        )}
-                        <div className="button-container">
-                            <button className="Form-btn" type="submit">SEND</button>
-                        </div>
-                </form>
+        <main>
+            <div className="editCity-container">
+                <div>
+                    <form id="Form-select">
+                        <select onChange={handleSelect} ref={selectCity}>
+                            <option>Select one city:</option>
+                            {citiesArray.map(optionsSelect)}
+                        </select>
+                    </form>
+                    {
+                        open? <form id="Form-city-edit" onSubmit={handleChanged} ref={newCityData}>
+                                <h2>EDIT CITY</h2>
+                                    {inputsArray.map((inputObj,i) => {
+                                        return <LabelInput inputObj={inputObj} values={Object.values(cityData)[i]}/>
+                                        }
+                                    )}
+                                    <div className="button-container">
+                                        <button className="Form-btn" type="submit">SEND</button>
+                                    </div>
+                            </form>
+                        : null
+                    }
+                    
+                </div>
             </div>
-        </div>
+        </main>
         </>
     );
 }

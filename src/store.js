@@ -1,9 +1,12 @@
-// import {configureStore} from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit'
+import citiesAPI from './features/citiesAPI'
 
-// import citiesSlice from './features/citiesSlice'
-
-// export default configureStore ({
-//     reducer:{
-//         cities : citiesSlice
-//     }
-// })
+export default configureStore ({
+    reducer: {
+        [citiesAPI.reducerPath] : citiesAPI.reducer
+    }
+    // middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+    //     immutableCheck: false,
+    //     serializableCheck: false
+    // })
+})

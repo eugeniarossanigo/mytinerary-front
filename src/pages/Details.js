@@ -19,33 +19,35 @@ export default function Details() {
 
     return (
         <>
-        <div className="detail-cont">
-            <div className="detail-container">
-                <div className="img-container-detail">
-                    <img src={cityData.photo} alt="" />
-                </div>
-                <div className="text-detail">
-                    <h2>DETAILS</h2>
-                    <div className="characteristics">
-                        <h3>City:</h3>
-                        <p>{cityData.city}</p>
-                        <h3>Province:</h3>
-                        <p>{cityData.province}</p>
-                        <h3>Country:</h3>
-                        <p>{cityData.country}</p>
-                        <h3>Population:</h3>
-                        <p>{cityData.population}</p>
-                        <h3>Fundation:</h3>
-                        <p>{date.getFullYear()}</p>
-                        <h3>Description:</h3>
-                        <p>{cityData.description}</p>
+        <main>
+            <div className="detail-cont">
+                <div className="detail-container">
+                    <div className="img-container-detail">
+                        <img src={cityData.photo} alt="" />
+                    </div>
+                    <div className="text-detail">
+                        <h2>DETAILS</h2>
+                        <div className="characteristics">
+                            <h3>City:</h3>
+                            <p>{cityData.city}</p>
+                            <h3>Province:</h3>
+                            <p>{cityData.province}</p>
+                            <h3>Country:</h3>
+                            <p>{cityData.country}</p>
+                            <h3>Population:</h3>
+                            <p>{cityData.population}</p>
+                            <h3>Fundation:</h3>
+                            <p>{date.getFullYear()}</p>
+                            <h3>Description:</h3>
+                            <p>{cityData.description}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>    
-                <LinkRouter className="button-container" to={"/cities"}>
-                    <p className="button-back">BACK</p>
-                </LinkRouter>
+            </div>    
+                    <LinkRouter className="button-container" to={"/cities"}>
+                        <p className="button-back">BACK</p>
+                    </LinkRouter>
+        </main>
         </>
     )
 }
