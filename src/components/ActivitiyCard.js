@@ -1,16 +1,17 @@
 import '../styles/ActivityCard.css';
 
 
-function ActivityCard() {
-    }
+function ActivityCard({name,url}) {
+    
     return (
     <>
             <div className='activity-card'>
-                <h3>Cordoba</h3>
-                <img src="./carloz-paz-5308013.jpg" alt=""/>
+                <h3>{name}</h3>
+                <img src={url} alt=""/>
             </div>
     </>
     );
+}
     
 
 export default ActivityCard;

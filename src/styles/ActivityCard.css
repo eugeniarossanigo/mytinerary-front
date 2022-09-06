@@ -2,20 +2,39 @@
     display: flex;
     justify-content: space-between;
     background-color: #d7e7e3;
-    min-width: 70%;
+    width: 95%;
     margin: 1rem;
     box-shadow: 0 0 20px 8px #d0d0d0;
     border-radius: 20px;
 }
+.activity-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width:33%;
+    padding: 1rem;
+    }
 
-.activities-container img {
-    width: 20rem;
-    height: 15rem;
+.activity-card img {
+    width: 100%;
     margin: 1rem;
     border-radius: 10px;
+    object-fit: contain;
 }
+
 .activity-card h3{
-position: absolute;
-display: block;
-transform: translateX(9rem);
+    position: absolute;
+    transform: translateY(1.5rem);
+}
+
+@media screen and (max-width: 768px){
+    .activities-container{
+        flex-direction: column;
+        align-items: center;
+    }
+    .activity-card{
+        width: 80%;
+        padding: 1rem;
+        }
 }

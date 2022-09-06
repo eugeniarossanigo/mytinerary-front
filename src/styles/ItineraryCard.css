@@ -10,10 +10,16 @@
     margin-bottom: 5rem;
     box-sizing: border-box;
 }
+.itinerary-title h1{
+    margin-top: 1rem;
+}
 .itinerary-info{
     display: flex;
     justify-content: space-around;
     width: 90%;
+    padding: 1.5rem;
+
+
 }
 .comment-container{
     display: flex;
@@ -24,6 +30,10 @@
     box-shadow: 0 0 20px 8px #d0d0d0;
     border-radius: 20px;
     margin-bottom: 2rem;
+}
+.comment-title{
+    text-align: center;
+    margin-bottom: 1rem;
 }
 .comment{
     display: flex;
@@ -43,4 +53,10 @@ padding-left: 1rem;
 
 .pers p{
     margin-left: 2rem;
+}
+
+@media screen and (max-width: 1440px){
+    .itinerary-container{
+        width: 95%;
+    }
 }
