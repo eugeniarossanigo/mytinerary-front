@@ -1,0 +1,29 @@
+.comment-container{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    min-height: 10rem;
+    background: #f2f2f2;
+    box-shadow: 0 0 20px 8px #d0d0d0;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+}
+.comment{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    width: 70%;  
+}
+.pers{
+margin: 2rem 0 2rem 0;
+background-color:  #d7e7e3;
+width: 100%;
+border-radius: 10px;
+box-shadow: 0 0 20px 8px #d0d0d0;
+padding-left: 1rem;
+}
+
+.pers p{
+    margin-left: 2rem;
+}
