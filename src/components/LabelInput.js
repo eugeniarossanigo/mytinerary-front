@@ -2,8 +2,7 @@ import '../styles/NewCity.css'
 export default function Input(props) {
         const inputs = props.inputObj
         const values = props.values
-        console.log(values)
-        
+
         if (inputs.type !== "textarea") {
             let value = values && inputs.type === "date"? new Date(values).toISOString().substring(0,10) : values
             return (
