@@ -28,17 +28,22 @@ body {
 }
 
 .Citycard-grid {
-    margin: 2rem 15rem 2rem 0;
+    margin: 2rem;
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-column-gap: var(--spacing-l);
-    grid-row-gap: var(--spacing-l);
+    grid-row-gap: var(--spacing-l); 
     max-width: var(--width-container);
-    width: 100%;
+    width: 85%;
+
 }
 
 
 .card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     list-style: none;
     position: relative;
 }
@@ -63,9 +68,8 @@ body {
     transition:
         filter 200ms linear,
         transform 200ms linear;
-    width: 50rem;
+    width: 90%;
     height: 20rem;
-
 }
 
 .card:hover .card__background {
@@ -78,7 +82,7 @@ body {
 
 .card__content {
     left: 0;
-    padding: var(--spacing-l);
+    padding: 1rem ;
     position: absolute;
     top: 0;
 }
@@ -97,15 +101,14 @@ body {
     line-height: 1.4;
     word-spacing: 100vw;
 }
-@media(min-width: 1440px) {
-    .Citycard-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-@media(max-width: 1440px){
+
+@media(max-width: 1280px){
     .Citycard-grid{
         display: flex;
         flex-direction: column;
-        align-items: center
+        align-items: center;   
+    }
+    .card__background{
+        width: 80vw;
     }
 }
