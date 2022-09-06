@@ -1,0 +1,46 @@
+.itinerary-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-height: 30rem;
+    width: 80%;
+    background: #f2f2f2;
+    border-radius: 20px;
+    box-shadow: 0 0 20px 8px #d0d0d0;
+    margin-bottom: 5rem;
+    box-sizing: border-box;
+}
+.itinerary-info{
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+}
+.comment-container{
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    min-height: 10rem;
+    background: #f2f2f2;
+    box-shadow: 0 0 20px 8px #d0d0d0;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+}
+.comment{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    width: 90%;  
+}
+.pers{
+margin: 2rem 0 2rem 0;
+background-color:  #d7e7e3;
+width: 100%;
+border-radius: 10px;
+box-shadow: 0 0 20px 8px #d0d0d0;
+padding-left: 1rem;
+}
+
+.pers p{
+    margin-left: 2rem;
+}

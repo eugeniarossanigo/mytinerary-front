@@ -1,0 +1,21 @@
+.activities-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: #d7e7e3;
+    min-width: 70%;
+    margin: 1rem;
+    box-shadow: 0 0 20px 8px #d0d0d0;
+    border-radius: 20px;
+}
+
+.activities-container img {
+    width: 20rem;
+    height: 15rem;
+    margin: 1rem;
+    border-radius: 10px;
+}
+.activity-card h3{
+position: absolute;
+display: block;
+transform: translateX(9rem);
+}
