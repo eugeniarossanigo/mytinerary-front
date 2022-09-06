@@ -3,13 +3,14 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import axios from "axios";
 import { Link as LinkRouter } from 'react-router-dom'
+import apiURL from '../api';
 
 export default function Details() {
     const { id } = useParams()
     const [cityData, setCityData] = useState({})
     
     useEffect(() => {
-        axios.get('http://localhost:4000/cities/' + id)
+        axios.get(apiURL +'/cities/' + id)
         .then(response => {
             setCityData(response.data.response)
         })

@@ -2,6 +2,7 @@ import LabelInput from "../components/LabelInput";
 import '../styles/NewCity.css'
 import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import apiURL from "../api";
 
 const year = new Date().getFullYear()
 
@@ -25,7 +26,7 @@ export default function NewCity() {
 
     const {city, province, country, photo, population, fundation, description} = newData 
     useEffect(() => {
-        axios.post('http://localhost:4000/cities', {
+        axios.post(apiURL +'/cities', {
             city, province, country, photo, population, fundation, description 
         })
             .then(response=>{

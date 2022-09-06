@@ -2,6 +2,7 @@ import axios from 'axios';
 import CityCard from '../components/CityCard';
 import { useEffect, useState } from 'react';
 import InputForm from '../components/inputForm';
+import apiURL from '../api';
 
 function Cities() {
 
@@ -9,7 +10,7 @@ function Cities() {
     const [inputParam, setInputParam] = useState("")
 
     useEffect(() => {
-        axios.get('http://localhost:4000/cities?city='+inputParam)
+        axios.get(apiURL +'/cities?city='+inputParam)
         .then(response => {
             setCitiesArray(response.data.response)
         })
