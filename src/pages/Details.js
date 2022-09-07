@@ -1,23 +1,18 @@
 import "../styles/Details.css"
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from 'react';
-import axios from "axios";
 import { Link as LinkRouter } from 'react-router-dom'
-import apiURL from '../api';
 import ItineraryCard from "../components/ItineraryCard";
+import { useGetCityIdQuery } from '../features/citiesAPI'
+import { useGetItineraryCityQuery } from "../features/itinerariesAPI";
 
 export default function Details() {
     const { id } = useParams()
-    const [cityData, setCityData] = useState({})
     
-    useEffect(() => {
-        axios.get(apiURL +'/cities/' + id)
-        .then(response => {
-            setCityData(response.data.response)
-        })
-    }, [])
-    
-    let date = new Date(cityData.fundation)
+    const {data: cities} = useGetCityIdQuery(id)
+    const {data: itineraries} = useGetItineraryCityQuery(id)
+    let city = cities?.response
+
+    let date = new Date(city?.fundation)
 
     return (
         <>
@@ -25,26 +20,26 @@ export default function Details() {
             <div className="detail-cont">
                 <div className="detail-container">
                     <div className="img-container-detail">
-                        <img src={cityData.photo} alt="" />
+                        <img src={city?.photo} alt="" />
                     </div>
                     <div className="text-detail">
                         <h2>DETAILS</h2>
                         <div className="characteristics">
                             <div>
                                 <h3>City:</h3>
-                                <p>{cityData.city}</p>
+                                <p>{city?.city}</p>
                             </div>
                             <div>
                                 <h3>Province:</h3>
-                                <p>{cityData.province}</p>
+                                <p>{city?.province}</p>
                             </div>
                             <div>
                                 <h3>Country:</h3>
-                                <p>{cityData.country}</p>
+                                <p>{city?.country}</p>
                             </div>
                             <div>
                                 <h3>Population:</h3>
-                                <p>{cityData.population}</p>
+                                <p>{city?.population}</p>
                             </div>
                             <div>
                                 <h3>Fundation:</h3>
@@ -52,13 +47,13 @@ export default function Details() {
                             </div>
                             <div className="description">
                                 <h3>Description:</h3>
-                                <p>{cityData.description}</p>
+                                <p>{city?.description}</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>  
-            <ItineraryCard/>
+            {itineraries?.response.map(itinerary=> <ItineraryCard itinerary={itinerary}/>)}
             <LinkRouter className="Details-btn-back" to={"/cities"}>BACK</LinkRouter>
         </main>
         </>
