@@ -85,7 +85,7 @@ export default function EditCity() {
                     </form>
                     {
                         open? <form id="Form-city-edit" onSubmit={handleChanged} ref={newCityData}>
-                                <h2>EDIT CITY</h2>
+                                <h2>EDIT A CITY</h2>
                                     {inputsArray.map((inputObj,i) => {
                                         return <LabelInput inputObj={inputObj} values={Object.values(cityData)[i]}/>
                                         }
