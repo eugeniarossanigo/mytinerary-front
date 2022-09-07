@@ -8,6 +8,7 @@ import ScrollToTop from '../components/ScrollToTop';
 import CitiesLayout from '../layouts/CitiesLayout';
 import Details from './Details';
 import EditCity from './EditCity';
+import MyTineraries from './MyTineraries';
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
               <Route path='/cities/:id' element={<Details />} />
               <Route path='/newcity' element={<NewCity />} />
               <Route path='/editcity' element={<EditCity />} />
+              <Route path='/mytinerary' element={<MyTineraries />} />
               <Route path='*' element={<UnderConstruction />} />
             </Routes>
           </CitiesLayout>
