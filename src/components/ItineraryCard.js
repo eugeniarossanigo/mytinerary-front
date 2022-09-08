@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useGetActivityItineraryQuery } from '../features/activitiesAPI';
 import '../styles/ItineraryCard.css';
 import ActivityCard from './ActivitiyCard';
@@ -9,6 +10,14 @@ const arrayComments = [
 ]
 
 function ItineraryCard({itinerary}) {
+    const [open, setOpen] = useState(false)
+    const handleClick = () => {
+        if (open) {
+            setOpen(false)
+        } else {
+            setOpen(true)
+        }
+    }
 
     const {data: activities} = useGetActivityItineraryQuery(itinerary._id)
 
@@ -39,12 +48,15 @@ function ItineraryCard({itinerary}) {
                 <div className="activities-container">
                     {activities?.response.map(activity => <ActivityCard activity={activity} />)}
                 </div>
-                <h3 className='comment-title'>Leave us your comment</h3>
-                <div className='comment-container'>
-                    <div className='comment'>
-                        {arrayComments.map(comment => <CommentCard user={comment.user} comment={comment.comment}/>)}
-                    </div>
-                </div>
+                <p className='comment-title'>Leave us your comment below <button className="arrow-down" onClick={handleClick}>⬇️</button></p>
+                    {
+                    open? <div className='comment-container'>
+                            <div className='comment'>
+                                {arrayComments.map(comment => <CommentCard user={comment.user} comment={comment.comment}/>)}
+                            </div>
+                        </div>
+                    : null
+                    }            
             </div>
         </>
     );
