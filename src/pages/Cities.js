@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { useState } from 'react';
 import CityCard from '../components/CityCard';
 import InputForm from '../components/inputForm';

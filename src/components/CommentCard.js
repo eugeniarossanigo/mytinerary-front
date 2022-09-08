@@ -1,6 +1,5 @@
 import '../styles/Comment.css';
 
-
 function CommentCard({comment , user}) {
 
     return (

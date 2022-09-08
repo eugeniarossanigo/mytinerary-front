@@ -10,8 +10,15 @@
     margin-bottom: 5rem;
     box-sizing: border-box;
 }
-.itinerary-title h1{
-    margin-top: 1rem;
+.itinerary-title h3{
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    margin: 2rem 0 1.5rem 0;
+    padding-bottom: .5rem;
+    text-align: center;
+    width: 25rem;
+    color: #78788c;
+    border-bottom: 3px solid #377771
 }
 .itinerary-info{
     display: flex;

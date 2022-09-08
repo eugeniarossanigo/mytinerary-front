@@ -49,7 +49,7 @@ export default function NewCity() {
         <>
             <main>
                 <form id="Form-city" onSubmit={handleChanged} ref={newInputs}>
-                    <h2>CITY</h2>
+                    <h2>CREATE A NEW CITY</h2>
                         {inputsArray.map(inputObj => <LabelInput inputObj={inputObj} values={""}/>)}
                         <div className="button-container">
                             <button className="Form-btn" type="submit">SEND</button>

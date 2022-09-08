@@ -1,17 +1,13 @@
 import '../styles/ActivityCard.css';
 
-
-function ActivityCard({name,url}) {
+export default  function ActivityCard({activity}) {
     
     return (
     <>
-            <div className='activity-card'>
-                <h3>{name}</h3>
-                <img src={url} alt=""/>
-            </div>
+        <div className='activity-card'>
+            <h5>{activity.name}</h5>
+            <img src={activity.photo} alt=""/>
+        </div>
     </>
     );
 }
-    
-
-export default ActivityCard;
