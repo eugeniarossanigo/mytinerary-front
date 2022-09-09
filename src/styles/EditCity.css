@@ -2,6 +2,27 @@
     display: flex;
     justify-content: center;
 }
+#Form-city-edit {
+    width: 840px;
+    min-height: 440px;
+    background: #e6e6e6;
+    border-radius: 8px;
+    box-shadow: 0 0 40px -10px #000;
+    margin: 1.5rem;
+    padding: 20px 30px;
+    max-width: calc(100vw - 40px);
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+}
+#Form-select {
+    width: 20rem;
+    height: 4rem;
+    background: #e6e6e6;
+    border-radius: 8px;
+    margin: 1.5rem;
+    padding: 20px 30px;
+}
 input{
     width: 100%;
     padding: 25px;
@@ -15,12 +36,12 @@ input{
     border-bottom: 2px solid #bebed2
     
 }
-h2 {
+#Form-city-edit h2 {
     display: flex;
+    font-size: 1.8rem;
     justify-content: center;
     margin: 0 10px ;
     padding-bottom: 10px;
-    width: 180px;
     color: #78788c;
     border-bottom: 3px solid #377771
 }
@@ -30,7 +51,6 @@ h2 {
     margin: 28px 0 0;
     font-size: 1.5rem;
     color: #5a5a5a
-
 }
 input:focus {
     border-bottom: 2px solid #78788c

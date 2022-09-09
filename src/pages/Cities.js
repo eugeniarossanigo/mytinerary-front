@@ -1,36 +1,26 @@
-import axios from 'axios';
+import { useState } from 'react';
 import CityCard from '../components/CityCard';
-import { useEffect, useState } from 'react';
 import InputForm from '../components/inputForm';
+import { useGetAllCitiesQuery, useGetCityNameQuery } from '../features/citiesAPI'
 
-function Cities() {
-
-    const [citiesArray, setCitiesArray] = useState([])
+export default function Cities() {
     const [inputParam, setInputParam] = useState("")
-
-    useEffect(() => {
-        axios.get('http://localhost:4000/cities?city='+inputParam)
-        .then(response => {
-            setCitiesArray(response.data.response)
-        })
-    }, [inputParam])
-
     const searchParam = (param) => {
         setInputParam(param)
     }
+
+    const {data: cities} = useGetAllCitiesQuery()
+    const {data: cityQuery} = useGetCityNameQuery(inputParam)
+    let citiesArray = cityQuery? cityQuery : cities
 
     return (
         <>
             <main>
                 <InputForm searchParam={searchParam} />
                 <div className="Citycard-grid">
-                    {citiesArray.map((city)=> (
-                        <CityCard data={city} linkTo={city._id} />
-                    ))}
+                    {citiesArray?.response.map(city => <CityCard data={city} linkTo={city._id} />)}
                 </div>
             </main>
         </>
     );
 }
-
-export default Cities;

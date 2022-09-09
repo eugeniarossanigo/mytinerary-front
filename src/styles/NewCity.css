@@ -1,4 +1,4 @@
-form {
+#Form-city {
     width: 840px;
     min-height: 440px;
     background: #e6e6e6;
@@ -24,12 +24,12 @@ input{
     border-bottom: 2px solid #bebed2
     
 }
-h2 {
+#Form-city h2 {
     display: flex;
+    font-size: 1.8rem;
     justify-content: center;
     margin: 0 10px ;
     padding-bottom: 10px;
-    width: 180px;
     color: #78788c;
     border-bottom: 3px solid #377771
 }

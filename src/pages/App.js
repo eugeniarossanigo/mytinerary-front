@@ -7,8 +7,8 @@ import UnderConstruction from './UnderConstruction';
 import ScrollToTop from '../components/ScrollToTop';
 import CitiesLayout from '../layouts/CitiesLayout';
 import Details from './Details';
-import Carrousel from '../components/Carrousel';
 import EditCity from './EditCity';
+import MyTineraries from './MyTineraries';
 
 function App() {
     return (
@@ -20,8 +20,9 @@ function App() {
               <Route path='/' element={<Home />} />
               <Route path='/cities' element={<Cities />} />
               <Route path='/cities/:id' element={<Details />} />
-              <Route path='/editcity' element={<EditCity />} />
               <Route path='/newcity' element={<NewCity />} />
+              <Route path='/editcity' element={<EditCity />} />
+              <Route path='/mytinerary' element={<MyTineraries />} />
               <Route path='*' element={<UnderConstruction />} />
             </Routes>
           </CitiesLayout>

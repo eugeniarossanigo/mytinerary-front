@@ -25,10 +25,12 @@ header button{
 }
 .HamburguerMenu {
     display: none;
+    z-index: 1;
 }
 .NavigationMenu {
     display: flex;
     justify-content: space-between;
+    z-index: 1;
 }
 .NavigationMenu ul {
     display: flex;
@@ -76,10 +78,15 @@ header button{
     color: #377771;
 }
 
+@media screen and (max-width: 1440px){
+    .NavigationMenu .Header-link {
+        font-size: 1.3rem;
+        margin-right: 1.2rem;
+    }
+}
+
 @media screen and (max-width: 1024px){
     .Header-link{
-        font-size: 1.3rem;
-        margin-right: 1.5rem;
         text-decoration: none;
         color: #1E1A1D;
         padding: .1rem;

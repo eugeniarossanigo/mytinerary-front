@@ -2,7 +2,7 @@ import '../styles/CityCard.css'
 import {Link as LinkRouter} from 'react-router-dom'
 
 function CityCard(props) {
-    var city = props.data
+    let city = props.data
     return (
         <>
             <LinkRouter className="card" to={props.linkTo}>
