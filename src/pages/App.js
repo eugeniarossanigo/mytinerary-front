@@ -10,6 +10,7 @@ import Details from './Details';
 import EditCity from './EditCity';
 import MyTineraries from './MyTineraries';
 import SignUp from './SignUp';
+import SignIn from './SignIn';
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/auth/signup' element={<SignUp />} />
+              <Route path='/auth/signin' element={<SignIn />} />
               <Route path='/cities' element={<Cities />} />
               <Route path='/cities/:id' element={<Details />} />
               <Route path='/newcity' element={<NewCity />} />
