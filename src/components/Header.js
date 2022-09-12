@@ -11,6 +11,11 @@ const pages = [
     {_id: 104, name: 'EditCity', linkTo: '/editcity'}
 ]
 
+const logs = [
+    {_id: 105, name: 'SignIn', linkTo: '/auth/signin'},
+    {_id: 106, name: 'SignUp', linkTo: '/auth/signup'}
+]
+
 const linkCreator = (page) => <LinkRouter key={page._id} className="Header-link" to={page.linkTo}>{page.name}</LinkRouter>
 
 function Header() {
@@ -28,8 +33,8 @@ function Header() {
         <div className='Header-container'>
             <header>
                 <h1>MyTinerary</h1>
-                <NavigationMenu pages={pages} click={handleClick} link={linkCreator} open={open}/>
-                <HamburguerMenu pages={pages} click={handleClick} link={linkCreator} open={open}/>
+                <NavigationMenu pages={pages} logs={logs} click={handleClick} link={linkCreator} open={open}/>
+                <HamburguerMenu pages={pages} logs={logs} click={handleClick} link={linkCreator} open={open}/>
             </header>
         </div>
     </>

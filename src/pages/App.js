@@ -9,6 +9,7 @@ import CitiesLayout from '../layouts/CitiesLayout';
 import Details from './Details';
 import EditCity from './EditCity';
 import MyTineraries from './MyTineraries';
+import SignUp from './SignUp';
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
           <CitiesLayout>
             <Routes>
               <Route path='/' element={<Home />} />
+              <Route path='/auth/signup' element={<SignUp />} />
               <Route path='/cities' element={<Cities />} />
               <Route path='/cities/:id' element={<Details />} />
               <Route path='/newcity' element={<NewCity />} />
