@@ -1,4 +1,4 @@
-MyTinerary
+MyTinerary - Almost Hackers
 
 # Getting Started with Create React App
 
