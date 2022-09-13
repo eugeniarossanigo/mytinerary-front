@@ -1,4 +1,4 @@
-import LabelInput from "../components/LabelInput";
+import InputCities from "../components/InputCities";
 import '../styles/NewCity.css'
 import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
@@ -50,10 +50,10 @@ export default function NewCity() {
             <main>
                 <form id="Form-city" onSubmit={handleChanged} ref={newInputs}>
                     <h2>CREATE A NEW CITY</h2>
-                        {inputsArray.map(inputObj => <LabelInput inputObj={inputObj} values={""}/>)}
-                        <div className="button-container">
-                            <button className="Form-btn" type="submit">SEND</button>
-                        </div>
+                    {inputsArray.map(inputObj => <InputCities inputObj={inputObj} values={""}/>)}
+                    <div className="button-container">
+                        <button className="Form-btn" type="submit">SEND</button>
+                    </div>
                 </form>
                 <div id="Form-array"></div>
             </main>

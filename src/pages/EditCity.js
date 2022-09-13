@@ -1,4 +1,4 @@
-import LabelInput from "../components/LabelInput";
+import InputCities from "../components/InputCities";
 import '../styles/EditCity.css'
 import { useRef, useState, useEffect} from 'react'
 import axios from "axios";
@@ -87,7 +87,7 @@ export default function EditCity() {
                         open? <form id="Form-city-edit" onSubmit={handleChanged} ref={newCityData}>
                                 <h2>EDIT A CITY</h2>
                                     {inputsArray.map((inputObj,i) => {
-                                        return <LabelInput inputObj={inputObj} values={Object.values(cityData)[i]}/>
+                                        return <InputCities inputObj={inputObj} values={Object.values(cityData)[i]}/>
                                         }
                                     )}
                                     <div className="button-container">
