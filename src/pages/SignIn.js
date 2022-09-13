@@ -19,6 +19,7 @@ const inputsArray = [
         ]
 
 export default function SignIn() {
+    localStorage.setItem('userLogged',JSON.stringify({user:'Eugenia',logged:true}))
 
     // const handleSignin = (e) => {
     //     e.preventDefault()

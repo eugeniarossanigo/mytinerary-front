@@ -11,14 +11,28 @@ const pages = [
     {_id: 104, name: 'EditCity', linkTo: '/editcity'}
 ]
 
-const logs = [
+const logsIn = [
     {_id: 105, name: 'SignIn', linkTo: '/auth/signin'},
     {_id: 106, name: 'SignUp', linkTo: '/auth/signup'}
+]
+const logsOut = [
+    {_id: 107, name: 'MyTinerary', linkTo: '/mytinerary'},
+    {_id: 108, name: 'SignOut', linkTo: '/'},
 ]
 
 const linkCreator = (page) => <LinkRouter key={page._id} className="Header-link" to={page.linkTo}>{page.name}</LinkRouter>
 
 function Header() {
+    let user = JSON.parse(localStorage .getItem('userLogged')) 
+    // const [isLogged, setIsLogged] = useState(false)
+    // console.log(user.logged)
+    // if (user.logged){
+    //     setIsLogged(true)
+    // }else{
+    //     setIsLogged(false)
+    // }
+    const isLogged = true
+
     const [open, setOpen] = useState(false)
     const handleClick = () => {
         if (open) {
@@ -33,8 +47,8 @@ function Header() {
         <div className='Header-container'>
             <header>
                 <h1>MyTinerary</h1>
-                <NavigationMenu pages={pages} logs={logs} click={handleClick} link={linkCreator} open={open}/>
-                <HamburguerMenu pages={pages} logs={logs} click={handleClick} link={linkCreator} open={open}/>
+                <NavigationMenu pages={pages} logsIn={logsIn} logsOut={logsOut} click={handleClick} link={linkCreator} open={open} logged={isLogged}/>
+                <HamburguerMenu pages={pages} logsIn={logsIn} logsOut={logsOut} click={handleClick} link={linkCreator} open={open} logged={isLogged}/>
             </header>
         </div>
     </>
