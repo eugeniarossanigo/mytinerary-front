@@ -35,7 +35,7 @@ header button{
 .NavigationMenu .Header-logs > div{
     display: flex;
     flex-direction: column;
-    width: 9rem;
+    width: auto;
     position: absolute;
     padding: 1rem;
     background-color: #DFAA5E;
@@ -73,7 +73,7 @@ header button{
 }
 .NavigationMenu .Header-logs a:hover{
     color: #377771;
-    width: 7.5rem;
+    width: auto;
 }
 
 @media screen and (max-width: 1440px){
