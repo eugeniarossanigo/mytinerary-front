@@ -4,10 +4,10 @@ import * as jose from 'jose'
 export default function SignUpGoogle() {
 
     const buttonDiv = useRef(null)
-    console.log(buttonDiv.current)
+    // console.log(buttonDiv.current)
     async function handleCredentialResponse(response) {
         let userObject = jose.decodeJwt(response.credential)
-        console.log(userObject)
+        // console.log(userObject)
 
         // let [newUser] = useSignup
 
@@ -15,10 +15,11 @@ export default function SignUpGoogle() {
             name: userObject.name,
             photo: userObject.picture,
             mail: userObject.mail,
+            password: userObject.sub,
             role: 'user',
             from: 'google'
         }
-        // newUser (data)
+        // newUser(data)
 
     }
     useEffect(() => {
@@ -31,7 +32,7 @@ export default function SignUpGoogle() {
         });
         google.accounts.id.renderButton(
             buttonDiv.current,
-            { theme: "outline", size: "large" , text: 'signup_with'}  // customization attributes
+            { theme: "outline", size: "large" , text: 'signup_with'}
         );
     }, [])
     return (

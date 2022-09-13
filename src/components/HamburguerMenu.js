@@ -3,7 +3,6 @@ import {Link as LinkRouter} from 'react-router-dom'
 export default function HamburguerMenu(props) {
     const pages = props.pages
     const logs = props.logs
-    console.log(pages)
     const open = props.open
 
     return (

@@ -55,7 +55,7 @@ export default function NewCity() {
                         <button className="Form-btn" type="submit">SEND</button>
                     </div>
                 </form>
-                <div id="Form-array"></div>
+                {/* <div id="Form-array"></div> */}
             </main>
         </>
     );
