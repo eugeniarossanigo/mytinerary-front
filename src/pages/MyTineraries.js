@@ -26,11 +26,7 @@ function MyTineraries() {
                                         <h2>{itinerary.city.city}</h2>
                                         <h3>{itinerary.name}</h3>
                                     </div>
-                            
                                 ))}
-
-
-
                             </div>
                         </div>
                     </div>
