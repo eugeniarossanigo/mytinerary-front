@@ -31,7 +31,7 @@ function Header() {
     // }else{
     //     setIsLogged(false)
     // }
-    const isLogged = true
+    const isLogged = false
 
     const [open, setOpen] = useState(false)
     const handleClick = () => {

@@ -1,17 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
 import InputUsers from "../components/InputUsers";
 import '../styles/SignIn.css'
-// import SignUpGoogle from '../components/SignUpGoogle'
+import { useGetUserLoginMutation, useGetAllUsersQuery } from "../features/usersAPI";
 
-// const inputsArray = [
-//         {_id: 600, name: "name", type: "text"},
-//         {_id: 601, name: "lastName", type: "text"},
-//         {_id: 602, name: "mail", type: "email"},
-//         {_id: 603, name: "password", type: "text"},
-//         {_id: 604, name: "photo", type: "text"},
-//         {_id: 605, name: "country", type: "text"},
-//         {_id: 606, name: "role", type: "text"}
-//         ]
+// import SignUpGoogle from '../components/SignUpGoogle'
 
 const inputsArray = [
         {_id: 602, name: "mail", type: "email"},
@@ -19,22 +11,27 @@ const inputsArray = [
         ]
 
 export default function SignIn() {
-    localStorage.setItem('userLogged',JSON.stringify({user:'Eugenia',logged:true}))
+    const newInputs = useRef({})
+    const [userLogin] = useGetUserLoginMutation()
+    // localStorage.setItem('userLogged',JSON.stringify({user:'Eugenia',logged:true}))
 
-    // const handleSignin = (e) => {
-    //     e.preventDefault()
-    //     const formSignin = document.getElementById('Form-signin')
-    //     const formObject = Object.fromEntries(new FormData(newInputs.current))
-    //     console.log(formObject)
-    //     setNewData(formObject)
-    //     formSignIn.reset()
-    // }
+    const handleSignin = async(e) => {
+        e.preventDefault()
+        const formSignin = document.getElementById('Form-signin')
+        const dataLogin = Object.fromEntries(new FormData(newInputs.current))
+        console.log(dataLogin[0])
+        // const {data: users} = useGetAllUsersQuery()
+        await userLogin({...dataLogin,...{from: 'form'}})
+        formSignin.reset()
+    }
 
+    const {data: users} = useGetAllUsersQuery()
+    const userLogged = users?.response.filter(user => user.logged == true)
+    
     return (
         <>
             <main>
-                <form id="Form-signin"> 
-                {/* onSubmit={HandleSignin} */}
+                <form id="Form-signin" onSubmit={handleSignin} ref={newInputs}> 
                     <h2>WELCOME BACK!</h2>
                     {inputsArray.map(inputObj => <InputUsers inputObj={inputObj} values={""}/>)}
                     <div className="button-container">
