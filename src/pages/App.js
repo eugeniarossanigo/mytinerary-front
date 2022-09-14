@@ -26,7 +26,7 @@ function App() {
               <Route path='/cities/:id' element={<Details />} />
               <Route path='/newcity' element={<NewCity />} />
               <Route path='/editcity' element={<EditCity />} />
-              <Route path='/mytinerary' element={<MyTineraries />} />
+              <Route path='/mytinerary/:id' element={<MyTineraries />} />
               <Route path='*' element={<UnderConstruction />} />
             </Routes>
           </CitiesLayout>
