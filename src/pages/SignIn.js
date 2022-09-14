@@ -20,6 +20,7 @@ export default function SignIn() {
         const formSignin = document.getElementById('Form-signin')
         const dataLogin = Object.fromEntries(new FormData(newInputs.current))
         console.log(dataLogin[0])
+        // const {data: users} = useGetAllUsersQuery()
         await userLogin({...dataLogin,...{from: 'form'}})
         formSignin.reset()
     }
