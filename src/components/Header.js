@@ -1,58 +1,67 @@
 import '../styles/Header.css';
-import {Link as LinkRouter} from 'react-router-dom'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import NavigationMenu from './NavigationMenu';
 import HamburguerMenu from './HamburguerMenu';
+import { useGetUserLogoutMutation } from '../features/usersAPI';
+import {Link as LinkRouter, useNavigate} from 'react-router-dom';
 
-const pages = [
-    {_id: 101, name: 'Home', linkTo: '/'},
-    {_id: 102, name: 'Cities', linkTo: '/cities'},
-    {_id: 103, name: 'NewCity', linkTo: '/newcity'},
-    {_id: 104, name: 'EditCity', linkTo: '/editcity'}
-]
 
-const logsIn = [
-    {_id: 105, name: 'SignIn', linkTo: '/auth/signin'},
-    {_id: 106, name: 'SignUp', linkTo: '/auth/signup'}
-]
-const logsOut = [
-    {_id: 107, name: 'MyTinerary', linkTo: '/mytinerary'},
-    {_id: 108, name: 'SignOut', linkTo: '/'},
-]
+export default function Header() {
+    // let logged = false
 
-const linkCreator = (page) => <LinkRouter key={page._id} className="Header-link" to={page.linkTo}>{page.name}</LinkRouter>
-
-function Header() {
-    let user = JSON.parse(localStorage .getItem('userLogged')) 
-    // const [isLogged, setIsLogged] = useState(false)
-    // console.log(user.logged)
-    // if (user.logged){
-    //     setIsLogged(true)
-    // }else{
-    //     setIsLogged(false)
-    // }
-    const isLogged = false
-
+    const [logged, setLogged] = useState(false)
+    const navigate = useNavigate()
     const [open, setOpen] = useState(false)
-    const handleClick = () => {
-        if (open) {
-            setOpen(false)
-        } else {
-            setOpen(true)
-        }
+    const handleClick = () => { open ? setOpen(false) : setOpen(true) }
+
+    const [userLogout, result] = useGetUserLogoutMutation()
+    let userLogged = localStorage.getItem('userLogged') ? JSON.parse(localStorage.getItem('userLogged')) : {}
+
+    useEffect(() => {
+        localStorage.getItem('userLogged') && setLogged(true)
+    })
+
+    const handleOut = async() => {
+        let userMail = { mail: userLogged.mail }
+        await userLogout(userMail)
+        localStorage.removeItem('userLogged')
+        setLogged(false)
+        setOpen(false)
+        navigate("/", {replace:true})
     }
 
     return (
-    <>
-        <div className='Header-container'>
-            <header>
-                <h1>MyTinerary</h1>
-                <NavigationMenu pages={pages} logsIn={logsIn} logsOut={logsOut} click={handleClick} link={linkCreator} open={open} logged={isLogged}/>
-                <HamburguerMenu pages={pages} logsIn={logsIn} logsOut={logsOut} click={handleClick} link={linkCreator} open={open} logged={isLogged}/>
-            </header>
-        </div>
-    </>
-    );
-    }
-
-export default Header;
+        <>
+            <div className='Header-container'>
+                <header>
+                    <h1>MyTinerary</h1>
+                    <div>
+                        <NavigationMenu logged={logged}/>
+                        <HamburguerMenu logged={logged}/>
+                        { logged ?
+                            <div>
+                                <button className="Header-link" onClick={handleClick}><img src={userLogged.photo} alt="add-user"></img></button>
+                                    <div className='Header-logs'>
+                                        { open? <div>
+                                                <LinkRouter key="107" className="Header-link" to='/mytinerary'>{userLogged.name}</LinkRouter>
+                                                <div key="108" className="Header-link" onClick={handleOut}>SignOut</div>
+                                            </div> : null }
+                                    </div>
+                            </div>
+                        :
+                            <div>
+                                <button className="Header-link" onClick={handleClick}><img src='./images/add-user.png' alt="add-user"></img></button>
+                                    <div className='Header-logs'>
+                                        { open? <div>
+                                                <LinkRouter key="105" className="Header-link" to='/auth/signin'>SignIn</LinkRouter>
+                                                <LinkRouter key="106" className="Header-link" to='/auth/signin'>SignUp</LinkRouter>
+                                            </div> : null }
+                                    </div>
+                            </div>
+                            }
+                    </div>
+                </header>
+            </div>
+        </>
+    )
+}
