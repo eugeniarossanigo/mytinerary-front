@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import InputUsers from "../components/InputUsers";
 import '../styles/SignIn.css'
-import { useGetUserLoginMutation, useGetAllUsersQuery } from "../features/usersAPI";
-
+import { useGetUserLoginMutation } from "../features/usersAPI";
+import { useNavigate } from "react-router-dom";
 // import SignUpGoogle from '../components/SignUpGoogle'
 
 const inputsArray = [
@@ -12,21 +12,22 @@ const inputsArray = [
 
 export default function SignIn() {
     const newInputs = useRef({})
-    const [userLogin] = useGetUserLoginMutation()
-    // localStorage.setItem('userLogged',JSON.stringify({user:'Eugenia',logged:true}))
+    const [userLogin, result] = useGetUserLoginMutation()
+    const navigate = useNavigate()
 
     const handleSignin = async(e) => {
         e.preventDefault()
         const formSignin = document.getElementById('Form-signin')
         const dataLogin = Object.fromEntries(new FormData(newInputs.current))
-        console.log(dataLogin[0])
-        // const {data: users} = useGetAllUsersQuery()
-        await userLogin({...dataLogin,...{from: 'form'}})
+        let newUserData = {...dataLogin,...{from: 'form'}}
+        await userLogin(newUserData)
         formSignin.reset()
+        navigate("/", {replace:true})
     }
 
-    const {data: users} = useGetAllUsersQuery()
-    const userLogged = users?.response.filter(user => user.logged == true)
+    if (result.isSuccess) {
+        localStorage.setItem('userLogged', JSON.stringify(result.data.response.user))
+    }
     
     return (
         <>

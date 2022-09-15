@@ -11,6 +11,9 @@ export const usersAPI = createApi({
         getAllUsers: builder.query({
             query: () => '/auth'
         }),
+        getUserMail: builder.query({
+            query: (mail) => '/auth?mail='+mail
+        }),
         getUserId: builder.query({
             query: (id) => '/auth/'+id
         }),
@@ -27,9 +30,16 @@ export const usersAPI = createApi({
                 method: 'POST',
                 body: user
             })
+        }),
+        getUserLogout: builder.mutation({
+            query: (user) => ({
+                url: 'auth/signout',
+                method: 'POST',
+                body: user
+            })
         })
     })
 })
 
 export default usersAPI;
-export const { useGetAllUsersQuery, useGetUserIdQuery, useGetNewUserMutation, useGetUserLoginMutation } = usersAPI
+export const { useGetAllUsersQuery, useGetUserMailQuery, useGetUserIdQuery, useGetNewUserMutation, useGetUserLoginMutation, useGetUserLogoutMutation } = usersAPI

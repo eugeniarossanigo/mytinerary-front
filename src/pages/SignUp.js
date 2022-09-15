@@ -9,7 +9,7 @@ const inputsArray = [
     { _id: 600, name: "name", type: "text" },
     { _id: 601, name: "lastName", type: "text" },
     { _id: 602, name: "mail", type: "email" },
-    { _id: 603, name: "password", type: "text" },
+    { _id: 603, name: "password", type: "password" },
     { _id: 604, name: "photo", type: "text" },
     { _id: 605, name: "country", type: "text" }
 ]
