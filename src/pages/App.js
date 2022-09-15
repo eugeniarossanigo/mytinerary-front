@@ -1,6 +1,6 @@
 import '../styles/App.css';
 import Home from '../pages/Home';
-import {BrowserRouter, Routes , Route} from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Cities from './Cities';
 import NewCity from './NewCity';
 import UnderConstruction from './UnderConstruction';
@@ -13,7 +13,7 @@ import SignUp from './SignUp';
 import SignIn from './SignIn';
 
 function App() {
-    return (
+  return (
     <>
         <BrowserRouter>
           <ScrollToTop />
@@ -32,7 +32,7 @@ function App() {
           </CitiesLayout>
         </BrowserRouter>
     </>
-    );
+  );
 }
 
 export default App;
