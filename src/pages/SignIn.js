@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import SignInGoogle from '../components/SignInGoogle'
 import InputUsers from "../components/InputUsers";
 import '../styles/SignIn.css'
 import { useGetUserLoginMutation } from "../features/usersAPI";
@@ -48,6 +49,7 @@ export default function SignIn() {
                     {inputsArray.map(inputObj => <InputUsers inputObj={inputObj} values={""}/>)}
                     <div className="button-container">
                         <button className="Form-btn" type="submit">LOG IN</button>
+                        <SignInGoogle />
                     </div>
                 </form>
                 <div className="Modal-container Modal-container-ok">
