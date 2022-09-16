@@ -103,18 +103,3 @@ export default function EditCity() {
         </>
     );
 }
-
-
-
-// {inputsArray.map(inputObj => <LabelInput inputObj={inputObj}/>)}
-
-// {inputsArray.map((inputObj,i) => {
-//         return <LabelInput inputObj={inputObj} values={Object.values(cityData)[i+1]}/>
-//         }
-//     )}
-// {/* <div id="Form-array"></div> */}
-
-// let resultado = Object.jey(data).reduce(function (prev, current) {
-//     prev[current] = data[current]
-//     return prev
-// }, {})
