@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
+import SignInGoogle from '../components/SignInGoogle'
 import InputUsers from "../components/InputUsers";
 import '../styles/SignIn.css'
 import { useGetUserLoginMutation } from "../features/usersAPI";
 import { useNavigate } from "react-router-dom";
-// import SignUpGoogle from '../components/SignUpGoogle'
 
 const inputsArray = [
         {_id: 602, name: "mail", type: "email"},
@@ -37,6 +37,7 @@ export default function SignIn() {
                     {inputsArray.map(inputObj => <InputUsers inputObj={inputObj} values={""}/>)}
                     <div className="button-container">
                         <button className="Form-btn" type="submit">LOG IN</button>
+                        <SignInGoogle />
                     </div>
                 </form>
             </main>
