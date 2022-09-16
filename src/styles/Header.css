@@ -46,6 +46,7 @@ header .Header-logs > div{
     transform: translate(-5rem, .5rem);
     border-radius: .2rem;
     gap: 1rem;
+    z-index: 1;
 }
 .NavigationMenu button{
     background-color: transparent;
