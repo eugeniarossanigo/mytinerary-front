@@ -19,10 +19,6 @@ const inputsArray = [
 export default function NewCity() {
     const newInputs = useRef({})
     const [newData, setNewData] = useState({})
-    
-    // const citiesView = (elem) => (
-    //     `<p>${Object.values(elem).join(" - ")}</p>`
-    // )
 
     const {city, province, country, photo, population, fundation, description} = newData
     useEffect(() => {
@@ -37,11 +33,8 @@ export default function NewCity() {
     const handleChanged = (e) => {
         e.preventDefault()
         const formCity = document.getElementById('Form-city')
-        // const formArray = document.getElementById('Form-array')
         const formObject = Object.fromEntries(new FormData(newInputs.current))
-        console.log(formObject)
         setNewData(formObject)
-        // formArray.innerHTML += citiesView(formObject)
         formCity.reset()
     }
 
@@ -55,7 +48,6 @@ export default function NewCity() {
                         <button className="Form-btn" type="submit">SEND</button>
                     </div>
                 </form>
-                {/* <div id="Form-array"></div> */}
             </main>
         </>
     );

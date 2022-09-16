@@ -2,18 +2,17 @@ import "../styles/MyTineraries.css"
 import { useParams } from "react-router-dom";
 import { useGetItineraryUserQuery } from '../features/itinerariesAPI'
 
-
 function MyTineraries() {
     const { id } = useParams()
-
     const { data: itineraries } = useGetItineraryUserQuery(id)
+
     return (
         <>
             <main>
                 <div className="pag-container">
                     <div className="itinerary-container">
                         <div className="itinerary-tittle">
-                            <h1>{itineraries?.response[0].user.name}</h1>
+                            <h1>{itineraries?.response[0].user.name} {itineraries?.response[0].user.lastName}</h1>
                         </div>
                         <h2>My Itineraries</h2>
                         <div className="itinerary-user">
