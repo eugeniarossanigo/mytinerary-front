@@ -19,7 +19,8 @@ export default function NewItinerary() {
     const [addItinerary, result] = useGetNewItineraryMutation()
     const cityId = '631768d0c561b3f4a98d5534'
     const user = useSelector(state => state.auth.user) //trae el usuario logeado
-    const userId = '632bbc99b8c1caa12a20eb9d'
+    // const userId = '632bbc99b8c1caa12a20eb9d'
+    const userId = user?.id
     console.log(cityId, userId)
     let values = {user:userId, city:cityId, likes:[]}
 
