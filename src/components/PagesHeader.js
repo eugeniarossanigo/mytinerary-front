@@ -7,7 +7,9 @@ const defaultPages = [
 
 const userPages = [
     ...defaultPages,
-    {_id: 103, name: 'NewCity', linkTo: '/newcity'}
+    {_id: 103, name: 'NewCity', linkTo: '/newcity'},
+    {_id: 105, name: 'NewItinerary', linkTo: '/newitinerary'}
+
 ]
 
 const adminPages = [

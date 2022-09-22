@@ -11,6 +11,8 @@ import EditCity from './EditCity';
 import MyTineraries from './MyTineraries';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
+import NewItinerary from './NewItinerary';
+import NewActivity from './NewActivity';
 
 function App() {
   return (
@@ -26,7 +28,9 @@ function App() {
               <Route path='/cities/:id' element={<Details />} />
               <Route path='/newcity' element={<NewCity />} />
               <Route path='/editcity' element={<EditCity />} />
+              <Route path='/newitinerary' element={<NewItinerary />} />
               <Route path='/mytinerary/:id' element={<MyTineraries />} />
+              <Route path='/newactivity' element={<NewActivity />} />
               <Route path='*' element={<UnderConstruction />} />
             </Routes>
           </CitiesLayout>
