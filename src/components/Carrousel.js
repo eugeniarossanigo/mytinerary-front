@@ -45,7 +45,7 @@ function Carrousel(props) {
     }
 
     const citiesView = (city) => (
-        <LinkRouter className="card" to={"cities/"+city._id}>
+        <LinkRouter key={city._id} className="card" to={"cities/"+city._id}>
             <div className="Carrousel-pic">
                 <img src={city.photo} alt="city"/>
                 <h3>{city.city}</h3>
