@@ -2,7 +2,6 @@ import {useState} from 'react'
 import PagesHeader from './PagesHeader';
 
 export default function HamburguerMenu(props) {
-    const logged = props.logged
     const [open, setOpen] = useState(false)
     const handleClick = () => { open ? setOpen(false) : setOpen(true) }
 
@@ -13,7 +12,7 @@ export default function HamburguerMenu(props) {
                 <div>
                     {
                     open? <div className='Hamburguer-logs'>
-                            <PagesHeader logged={logged} />
+                            <PagesHeader logged={props.logged} role={props.role} />
                         </div>
                     : null
                     }

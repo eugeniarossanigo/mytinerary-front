@@ -6,6 +6,9 @@ import { useGetUserLoginMutation } from "../features/usersAPI";
 import '../styles/Modals.css'
 import ModalOk from "../components/ModalOk";
 import ModalGo from "../components/ModalGo";
+import { useDispatch } from "react-redux";
+import { setCredentials } from '../features/userSlice';
+import { useNavigate } from "react-router-dom";
 
 const inputsArray = [
         {_id: 602, name: "mail", type: "email"},
@@ -13,34 +16,55 @@ const inputsArray = [
         ]
 
 export default function SignIn() {
-
-    const modalGo = document.querySelector('.Modal-container-go')
-    const modalOk = document.querySelector('.Modal-container-ok')
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    // const modalGo = document.querySelector('.Modal-container-go')
+    // const modalOk = document.querySelector('.Modal-container-ok')
 
     const newInputs = useRef({})
     const [userLogin, result] = useGetUserLoginMutation()
 
     const closeModal = (e) => {
         e.preventDefault()
-        modalOk.classList.remove('Modal-container--show')
+        // modalOk.classList.remove('Modal-container--show')
     }
 
-    const handleSignin = async(e) => {
+    // const handleSignin = async(e) => {
+    //     e.preventDefault()
+    //     const formSignin = document.getElementById('Form-signin')
+    //     const dataLogin = Object.fromEntries(new FormData(newInputs.current))
+    //     let newUserData = {...dataLogin,...{from: 'form'}}
+    //     let isEmpty = Object.values(newUserData).some(elem => (elem.trim() === ''))
+    //     await userLogin(newUserData)
+    //     if (result.isSuccess && !isEmpty) {
+    //         modalGo.classList.add('Modal-container--show')
+    //         localStorage.setItem('userLogged', JSON.stringify(result.data.response.user))
+    //         // localStorage.setItem('token', JSON.stringify(result.data.response.token))
+    //         formSignin.reset()
+    //     } else {
+    //         modalOk.classList.add('Modal-container--show')
+    //     }
+    // }
+    
+    const handleSignin = (e) => {
         e.preventDefault()
         const formSignin = document.getElementById('Form-signin')
         const dataLogin = Object.fromEntries(new FormData(newInputs.current))
         let newUserData = {...dataLogin,...{from: 'form'}}
-        let isEmpty = Object.values(newUserData).some(elem => (elem.trim() === ''))
-        await userLogin(newUserData)
-        if (result.isSuccess && !isEmpty) {
-            modalGo.classList.add('Modal-container--show')
-            localStorage.setItem('userLogged', JSON.stringify(result.data.response.user))
+        userLogin(newUserData)
+        .then(response => {
+            localStorage.setItem('token', response.data.response.token)
+            dispatch(setCredentials(response.data.response.user))
+            // modalGo.classList.add('Modal-container--show')
             formSignin.reset()
-        } else {
-            modalOk.classList.add('Modal-container--show')
-        }
+            navigate("/",{replace:true})
+        })
+        .catch(error => {
+            console.log(error)
+            // modalOk.classList.add('Modal-container--show')
+        })
     }
-    
+
     return (
         <>
             <main>
@@ -52,12 +76,12 @@ export default function SignIn() {
                         <SignInGoogle />
                     </div>
                 </form>
-                <div className="Modal-container Modal-container-ok">
+                {/* <div className="Modal-container Modal-container-ok">
                     <ModalOk closeModal={closeModal}  msgOk={["Try Again!!", "Please fill in all fields!", "OK"]}/>
                 </div>
                 <div className="Modal-container Modal-container-go">
                     <ModalGo msgGo={["Hi!", "Get a tour in your next trip", "GO ON"]}/>
-                </div>
+                </div> */}
             </main>
         </>
     );

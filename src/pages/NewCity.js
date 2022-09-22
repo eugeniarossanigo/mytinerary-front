@@ -3,6 +3,7 @@ import '../styles/NewCity.css'
 import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import apiURL from "../api";
+import { useGetNewCityMutation } from "../features/citiesAPI";
 
 const year = new Date().getFullYear()
 
@@ -18,23 +19,32 @@ const inputsArray = [
 
 export default function NewCity() {
     const newInputs = useRef({})
-    const [newData, setNewData] = useState({})
+    // const [newData, setNewData] = useState({})
+    const [addCity, result] = useGetNewCityMutation()
 
-    const {city, province, country, photo, population, fundation, description} = newData
-    useEffect(() => {
-        axios.post('http://localhost:4000/cities', {
-            city, province, country, photo, population, fundation, description
-        })
-            .then(response=>{
-                console.log(response.data)
-        })
-    }, [newData])
+    // const {city, province, country, photo, population, fundation, description} = newData
+    // useEffect(() => {
+    //     axios.post('http://localhost:4000/cities', {
+    //         city, province, country, photo, population, fundation, description
+    //     })
+    //         .then(response=>{
+    //             console.log(response.data)
+    //     })
+    // }, [newData])
 
-    const handleChanged = (e) => {
+    // const handleChanged = (e) => {
+    //     e.preventDefault()
+    //     const formCity = document.getElementById('Form-city')
+    //     const formObject = Object.fromEntries(new FormData(newInputs.current))
+    //     setNewData(formObject)
+    //     formCity.reset()
+    // }
+    
+    const handleChanged = async(e) => {
         e.preventDefault()
         const formCity = document.getElementById('Form-city')
-        const formObject = Object.fromEntries(new FormData(newInputs.current))
-        setNewData(formObject)
+        const newData = Object.fromEntries(new FormData(newInputs.current))
+        await addCity(newData)
         formCity.reset()
     }
 

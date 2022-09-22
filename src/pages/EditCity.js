@@ -18,7 +18,6 @@ const inputsArray = [
 
 export default function EditCity() {
     const formCity = document.getElementById('Form-city-edit')
-    const formSelect = document.getElementById('Form-select')
     const [citiesArray, setCitiesArray] = useState([])
     const selectCity = useRef("")
 
