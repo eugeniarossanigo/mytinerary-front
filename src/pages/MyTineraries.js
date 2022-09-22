@@ -5,30 +5,36 @@ import { useGetItineraryUserQuery } from '../features/itinerariesAPI'
 function MyTineraries() {
     const { id } = useParams()
     const { data: itineraries } = useGetItineraryUserQuery(id)
+    let userItineraries = itineraries?.response
 
     return (
         <>
             <main>
                 <div className="pag-container">
-                    <div className="itinerary-container">
-                        <div className="itinerary-tittle">
-                            <h1>{itineraries?.response[0].user.name} {itineraries?.response[0].user.lastName}</h1>
-                        </div>
-                        <h2>My Itineraries</h2>
-                        <div className="itinerary-user">
-                            <div className="itinerary-card">
-                                <img src={itineraries?.response[0].user.photo} alt="photouser" />
+                { userItineraries && userItineraries.length > 0 ? (
+                        <div className="itinerary-container">
+                            <div className="itinerary-tittle">
+                                <h1>{userItineraries[0].user.name} {userItineraries[0].user.lastName}</h1>
                             </div>
-                            <div className="itineraries">
-                                {itineraries?.response.map(itinerary => (
-                                    <div className="info-itinerary">
-                                        <h2>{itinerary.city.city}</h2>
-                                        <h3>{itinerary.name}</h3>
-                                    </div>
-                                ))}
+                            <h2>My Itineraries</h2>
+                            <div className="itinerary-user">
+                                <div className="itinerary-card">
+                                    <img src={userItineraries[0].user.photo} alt="photouser" />
+                                </div>
+                                <div className="itineraries">
+                                    {userItineraries.map(itinerary => (
+                                        <div key={itinerary._id} className="info-itinerary">
+                                            <h2>{itinerary.city.city}</h2>
+                                            <h3>{itinerary.name}</h3>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    ) : (
+                        <p>This user has 0 itineraries for now</p>
+                    )
+                }
                 </div>
             </main>
         </>

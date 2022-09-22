@@ -31,6 +31,13 @@ export const usersAPI = createApi({
                 body: user
             })
         }),
+        getUserLoginToken: builder.mutation({
+            query: () => ({
+                url: '/auth/token',
+                method: 'GET',
+                headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
+            })
+        }),
         getUserLogout: builder.mutation({
             query: (user) => ({
                 url: 'auth/signout',
