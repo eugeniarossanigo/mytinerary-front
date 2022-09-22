@@ -1,38 +1,34 @@
 import '../styles/NewItinerary.css'
 import React, { useEffect, useRef, useState } from "react";
-import axios from "axios";
 import apiURL from "../api";
 import InputItineraries from '../components/inputItineraries';
+import { useGetNewItineraryMutation } from '../features/itinerariesAPI';
+import { useSelector } from 'react-redux';
+
+
 
 const inputsArray = [
                     {_id: 301, name: "name", type: "text"},
-                    {_id: 302, name: "user", type: "text"},
-                    {_id: 303, name: "city", type: "text"},
                     {_id: 304, name: "price", type: "number"},
-                    {_id: 305, name: "likes", type: "array"},
                     {_id: 306, name: "tags", type: "array"},
                     {_id: 307, name: "duration", type: "number"}
                     ]
 
 export default function NewItinerary() {
     const newInputs = useRef({})
-    const [newData, setNewData] = useState({})
+    const [addItinerary, result] = useGetNewItineraryMutation()
+    const cityId = '631768d0c561b3f4a98d5534'
+    const user = useSelector(state => state.auth.user) //trae el usuario logeado
+    const userId = '632bbc99b8c1caa12a20eb9d'
+    console.log(cityId, userId)
+    let values = {user:userId, city:cityId, likes:[]}
 
-    const {name, user, city, price, likes, tags, duration} = newData
-    useEffect(() => {
-        axios.post('http://localhost:4000/itineraries', {
-            name, user, city, price, likes, tags, duration
-        })
-            .then(response=>{
-                console.log(response.data)
-        })
-    }, [newData])
-
-    const handleChanged = (e) => {
+    const handleChanged = async (e) => {
         e.preventDefault()
         const formItinerary = document.getElementById('Form-itinerary')
-        const formObject = Object.fromEntries(new FormData(newInputs.current))
-        setNewData(formObject)
+        const newData = Object.fromEntries(new FormData(newInputs.current))
+        newData.tags = newData.tags.split(',')
+        await addItinerary({...newData, ...values })
         formItinerary.reset()
     }
 
