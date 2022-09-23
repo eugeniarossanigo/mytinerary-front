@@ -13,7 +13,6 @@ export default function Details() {
     const [arrayItineraries, setArrayItineraries] = useState([])
     const {data: cities} = useGetCityIdQuery(id)
     const reloaded = useSelector(state => state.reload.reloadState)
-    // const {data: itineraries} = useGetItineraryCityQuery(id)
     const [showItineraries] = useGetItinerariesMutation()
     let city = cities?.response
 
@@ -21,7 +20,7 @@ export default function Details() {
 
     const handleShowItineraries = async() =>{
         try {
-            let res = await showItineraries()
+            let res = await showItineraries(id)
             setArrayItineraries(res?.data.response)           
         } catch (error) {
             console.log(error)

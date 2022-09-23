@@ -10,18 +10,16 @@ import { deleteCredentials } from '../features/userSlice';
 
 export default function Header() {
     const modalOk = document.querySelector('.Modal-container-ok')
-    const [userLogout, result] = useGetUserLogoutMutation()
+    const [userLogout] = useGetUserLogoutMutation()
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    // const [logged, setLogged] = useState(false)
     const user = useSelector(state => state.auth.user)
     const logged = useSelector(state => state.auth.logged)
 
     const [open, setOpen] = useState(false)
     const handleClick = () => { open ? setOpen(false) : setOpen(true) }
 
-    // let userLogged = localStorage.getItem('userLogged') ? JSON.parse(localStorage.getItem('userLogged')) : {}
     let mytinerary = '/mytinerary/'+ user?.id
 
     // useEffect(() => {
@@ -44,28 +42,6 @@ export default function Header() {
             .catch(error => 
                 console.log(error))
     }
-
-    // async function handleOut() {
-    //     //let email = JSON.parse(localStorage.getItem('user')).email //primero busco el mail del objeto del localStorage
-    //     try {
-    //         await userLogout()
-    //         localStorage.removeItem('token')
-    //         dispatch(deleteCredentials())
-    //         navigate("/",{replace:true})
-    //     } catch(error) {
-    //         console.log(error)
-    //     }
-    // }
-    
-    // const handleOut = async() => {
-    //     let userMail = { mail: userLogged.mail }
-    //     await userLogout(userMail)
-    //     localStorage.removeItem('userLogged')
-    //     setLogged(false)
-    //     setOpen(false)
-    //     modalOk.classList.add('Modal-container--show')
-    //     navigate("/", {replace:true})
-    // }
 
     return (
         <>

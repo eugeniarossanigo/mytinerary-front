@@ -13,11 +13,11 @@ export const itinerariesAPI = createApi({
         }),
         getItineraryId: builder.query({
             query: (id) => '/itineraries/'+id
-            }),
+        }),
         getItineraries: builder.mutation({
-            query(){
+            query(id){
                 return{
-                    url: 'itineraries',
+                    url: 'itineraries?city=' +id,
                     method: 'GET',
                 }
             }
@@ -37,13 +37,12 @@ export const itinerariesAPI = createApi({
                 }
             }
         }),
-        
         getPatchItinerary: builder.mutation({
             query(itinerary){
                 return{
-                    url:'itineraries',
-                    method:'PUT',
-                    body:itinerary
+                    url: 'itineraries/' + itinerary.id,
+                    method: 'PATCH',
+                    body: itinerary
                 }
             }
         }),

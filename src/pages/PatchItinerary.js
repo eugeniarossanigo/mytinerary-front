@@ -1,53 +1,48 @@
 import '../styles/PatchItinerary.css'
-import React, { useEffect, useRef, useState } from "react";
-import apiURL from "../api";
-import InputItineraries from '../components/inputItineraries';
+import React, { useRef } from "react";
 import { useGetItineraryIdQuery, useGetPatchItineraryMutation } from '../features/itinerariesAPI';
 import { useSelector } from 'react-redux';
-
-
-const inputsArray = [
-                    {_id: 300, name: "_id", type: "hidden"},
-                    {_id: 301, name: "name", type: "text"},
-                    {_id: 304, name: "price", type: "number"},
-                    {_id: 306, name: "tags", type: "array"},
-                    {_id: 307, name: "duration", type: "number"}
-                    ]
+import { useParams } from 'react-router-dom';
 
 export default function PatchItinerary() {
+    const { id } = useParams()
+    const {data: itinerary} = useGetItineraryIdQuery(id)
+    const itineraryObject = itinerary?.response
+    const userLogged = useSelector(state => state.auth.user)
+    const userId = userLogged?.id
+    const [updateItinerary] = useGetPatchItineraryMutation()
     const newInputs = useRef({})
-    const [updateItinerary, result] = useGetPatchItineraryMutation()
-    const {data:itinerary} = useGetItineraryIdQuery('632cb83bd30bfdbc016a4da1')
-    const user = useSelector(state => state.auth.user) //trae el usuario logeado
-    const itineraryData = itinerary?.response
-    const itineraryArray = [
-        {_id: 301, name: "name", type: "text"},
-        {_id: 304, name: "price", type: "number"},
-        {_id: 306, name: "tags", type: "array"},
-        {_id: 307, name: "duration", type: "number"}
-    ]
 
-    
-    // const userId = '632a6c6faeccbd78655f6705'
-    // // const userId = user?.id
-    // console.log(itineraryId, userId)
-    // let values = {user:userId, city:cityId, likes:[]}
-
-    const handleChanged = async (e) => {
+    const handleEdit = async(e) => {
         e.preventDefault()
-        const formItinerary = document.getElementById('Form-itinerary')
         const newData = Object.fromEntries(new FormData(newInputs.current))
-        newData.tags = newData.tags.split(',')
-        await updateItinerary({...newData})
-        formItinerary.reset()
+        const objitinerary = {
+                id: id,
+                user: userId,
+                city: itineraryObject?.city._id,
+                ...newData
+            }
+        objitinerary.tags = objitinerary.tags.split(',')
+        await updateItinerary(objitinerary)
     }
 
     return (
         <>
             <main>
-                <form id="Form-patchitinerary" onSubmit={handleChanged} ref={newInputs}>
+                <form id="Form-patchitinerary" onSubmit={handleEdit} ref={newInputs}>
                     <h2>EDIT ITINERARY</h2>
-                    {inputsArray.map(inputObj => <InputItineraries inputObj={inputObj} values={""}/>)}
+                    <label className="Form-label">name:
+                        <input className="Form-input" type="text" name="name" defaultValue={itineraryObject?.name} required />
+                    </label>
+                    <label className="Form-label">price:
+                        <input className="Form-input" type="number" name="price" defaultValue={itineraryObject?.price} required />
+                    </label>
+                    <label className="Form-label">tags:
+                        <input className="Form-input" type="array" name="tags" defaultValue={itineraryObject?.tags} required />
+                    </label>
+                    <label className="Form-label">duration:
+                        <input className="Form-input" type="number" name="duration" defaultValue={itineraryObject?.duration} required />
+                    </label>
                     <div className="button-container">
                         <button className="Form-btn" type="submit">SEND</button>
                     </div>
@@ -56,4 +51,3 @@ export default function PatchItinerary() {
         </>
     );
 }
-

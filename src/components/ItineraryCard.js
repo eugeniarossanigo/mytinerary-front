@@ -1,18 +1,20 @@
 import { useRef, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useGetActivityItineraryQuery } from '../features/activitiesAPI';
-import { useGetCommentItineraryQuery, useGetNewCommentMutation, useGetAllCommentsMutation  } from '../features/commentsAPI';
+import { useGetNewCommentMutation, useGetAllCommentsMutation  } from '../features/commentsAPI';
 import { useLikeDislikeMutation } from '../features/itinerariesAPI';
 import '../styles/ItineraryCard.css';
 import ActivityCard from './ActivitiyCard';
 import CommentCard from "./CommentCard";
 import { reload } from '../features/reloadSlice';
+import {Link as LinkRouter} from 'react-router-dom'
 
 function ItineraryCard({itinerary}) {
 
     const newInput = useRef("")
     const [open, setOpen] = useState(false)
     const user = useSelector(state => state.auth.user)
+    console.log(user?.role)
     const userId = user?.id
     const dispatch = useDispatch()
     const [likeDislike] = useLikeDislikeMutation()
@@ -67,6 +69,13 @@ function ItineraryCard({itinerary}) {
                 <div className='itinerary-title'>
                     <h3>{itinerary.name}</h3>
                 </div>
+                { user && (user?.id === itinerary.user._id) &&
+                    <div className='itinerary-btns'>
+                        <LinkRouter className="itinerary-edit" to={'/patchitinerary/'+itinerary._id}>
+                            <p>EDIT</p>
+                        </LinkRouter>
+                    </div>
+                }
                 <div className='itinerary-info'>
                     <div>
                         <h4>Duration:</h4>
