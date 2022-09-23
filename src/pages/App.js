@@ -13,8 +13,40 @@ import SignUp from './SignUp';
 import SignIn from './SignIn';
 import NewItinerary from './NewItinerary';
 import NewActivity from './NewActivity';
+import { useGetUserLoginTokenMutation } from '../features/usersAPI';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { setCredentials } from '../features/userSlice';
 
 function App() {
+
+  const [loginToken] = useGetUserLoginTokenMutation()
+  const dispatch = useDispatch()
+  // const logged = useSelector(state => state.auth.logged)
+  // const role = useSelector(state => state.auth.role)
+  // const [admin , setAdmin] = useState()
+
+  async function verifyToken(){
+    try{
+      let res = await loginToken(localStorage.getItem('token'))
+      if(res.data?.success){
+        dispatch(setCredentials(res.data.response.user))
+      }else{
+        localStorage.removeItem('token')
+      }
+    }catch(error){
+      localStorage.removeItem('token')
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    if(localStorage.getItem('token')){
+      verifyToken()
+    }
+  },[])
+
+  
   return (
     <>
         <BrowserRouter>

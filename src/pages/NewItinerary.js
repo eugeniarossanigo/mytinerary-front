@@ -1,11 +1,8 @@
 import '../styles/NewItinerary.css'
-import React, { useEffect, useRef, useState } from "react";
-import apiURL from "../api";
+import React, { useRef } from "react";
 import InputItineraries from '../components/inputItineraries';
 import { useGetNewItineraryMutation } from '../features/itinerariesAPI';
 import { useSelector } from 'react-redux';
-
-
 
 const inputsArray = [
                     {_id: 301, name: "name", type: "text"},
@@ -16,12 +13,10 @@ const inputsArray = [
 
 export default function NewItinerary() {
     const newInputs = useRef({})
-    const [addItinerary, result] = useGetNewItineraryMutation()
+    const [addItinerary] = useGetNewItineraryMutation()
     const cityId = '631768d0c561b3f4a98d5534'
-    const user = useSelector(state => state.auth.user) //trae el usuario logeado
-    // const userId = '632bbc99b8c1caa12a20eb9d'
+    const user = useSelector(state => state.auth.user)
     const userId = user?.id
-    console.log(cityId, userId)
     let values = {user:userId, city:cityId, likes:[]}
 
     const handleChanged = async (e) => {

@@ -17,7 +17,6 @@ export default function Header() {
     // const [logged, setLogged] = useState(false)
     const user = useSelector(state => state.auth.user)
     const logged = useSelector(state => state.auth.logged)
-    console.log(logged)
 
     const [open, setOpen] = useState(false)
     const handleClick = () => { open ? setOpen(false) : setOpen(true) }
@@ -88,7 +87,7 @@ export default function Header() {
                             </div>
                         :
                             <div>
-                                <button className="Header-link" onClick={handleClick}><img src='./images/add-user.png' alt="add-user"></img></button>
+                                <button className="Header-link" onClick={handleClick}><img src='/images/add-user.png' alt="add-user"></img></button>
                                     <div className='Header-logs'>
                                         { open? <div>
                                                 <LinkRouter key="105" className="Header-link" to='/auth/signin'>SignIn</LinkRouter>

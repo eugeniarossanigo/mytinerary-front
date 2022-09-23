@@ -4,6 +4,7 @@ import { Link as LinkRouter } from 'react-router-dom'
 import ItineraryCard from "../components/ItineraryCard";
 import { useGetCityIdQuery } from '../features/citiesAPI'
 import { useGetItineraryCityQuery } from "../features/itinerariesAPI";
+import { useEffect, useState } from "react";
 
 export default function Details() {
     const { id } = useParams()
@@ -11,6 +12,15 @@ export default function Details() {
     const {data: cities} = useGetCityIdQuery(id)
     const {data: itineraries} = useGetItineraryCityQuery(id)
     let city = cities?.response
+    const [reload, setReload] = useState(false)
+
+    // function handleReload() {
+    //     setReload(!reload)
+    // }
+
+    // useEffect(() => {
+    //     refetch()
+    // }, [reload])
 
     let date = new Date(city?.fundation)
 
