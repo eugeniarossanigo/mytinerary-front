@@ -1,15 +1,16 @@
 import '../styles/Header.css';
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import NavigationMenu from './NavigationMenu';
 import HamburguerMenu from './HamburguerMenu';
 import { useGetUserLogoutMutation } from '../features/usersAPI';
 import {Link as LinkRouter, useNavigate} from 'react-router-dom';
-import ModalOk from './ModalOk';
+import Modal from './Modal';
+import '../styles/Modals.css'
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteCredentials } from '../features/userSlice';
 
 export default function Header() {
-    const modalOk = document.querySelector('.Modal-container-ok')
+    const modal = document.querySelector('.Modal-container-ok')
     const [userLogout] = useGetUserLogoutMutation()
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -22,13 +23,9 @@ export default function Header() {
 
     let mytinerary = '/mytinerary/'+ user?.id
 
-    // useEffect(() => {
-    //     // localStorage.getItem('userLogged') && setLogged(true)
-    // })
-
     const closeModal = (e) => {
         e.preventDefault()
-        modalOk.classList.remove('Modal-container--show')
+        modal.classList.remove('Modal-container--show')
     }
 
     const handleOut = () => {
@@ -37,7 +34,8 @@ export default function Header() {
             .then(response => {
                 localStorage.removeItem('token')
                 dispatch(deleteCredentials())
-                navigate("/",{replace:true})
+                modal.classList.add('Modal-container--show')
+                navigate("/", {replace:true})
             })
             .catch(error => 
                 console.log(error))
@@ -76,7 +74,7 @@ export default function Header() {
                 </header>
             </div>
             <div className="Modal-container Modal-container-ok">
-                <ModalOk closeModal={closeModal}  msgOk={["Bye!!", "See you soon!", "CLOSE"]}/>
+                <Modal closeModal={closeModal} msg1={"Bye!!"} msg2={"See you soon!"} msg3={"CLOSE"}/>
             </div>
         </>
     )

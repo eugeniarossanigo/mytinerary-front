@@ -3,13 +3,11 @@ import '../styles/NewActivity.css'
 import { useRef, useState, useEffect} from 'react'
 import axios from "axios";
 
-
 const inputsArray = [
     {_id: 301, name: "name", type: "text"},
     {_id: 302, name: "photo", type: "text"},
     {_id: 303, name: "itinerary", type: "text"}
     ]
-
 
 export default function NewActivity() {
     const formActivity = document.getElementById('Form-activity-edit')
@@ -41,7 +39,6 @@ export default function NewActivity() {
         e.preventDefault()
         axios.get('http://localhost:4000/itineraries/'+ (selectItinerary.current.value))
             .then(response => {
-                console.log("hola")
                 setOpen(true)
                 setActivityData(response.data.response)
             })

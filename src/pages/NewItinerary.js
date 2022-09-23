@@ -33,7 +33,7 @@ export default function NewItinerary() {
     const userId = user?.id
     const cityId = selectCity.current.value
     let values = {user:userId, city:cityId, likes:[]}
-    
+
     const handleChanged = async(e) => {
         e.preventDefault()
         const formItinerary = document.getElementById('Form-itinerary')

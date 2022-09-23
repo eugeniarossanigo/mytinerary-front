@@ -16,61 +16,60 @@ import NewActivity from './NewActivity';
 import PatchItinerary from './PatchItinerary';
 import { useGetUserLoginTokenMutation } from '../features/usersAPI';
 import { useDispatch, useSelector } from 'react-redux';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { setCredentials } from '../features/userSlice';
 
 function App() {
 
-  const [loginToken] = useGetUserLoginTokenMutation()
-  const dispatch = useDispatch()
-  // const logged = useSelector(state => state.auth.logged)
-  // const role = useSelector(state => state.auth.role)
-  // const [admin , setAdmin] = useState()
+    const [loginToken] = useGetUserLoginTokenMutation()
+    const dispatch = useDispatch()
+    const user = useSelector(state => state.auth.user)
+    const role = user?.role
+    const logged = useSelector(state => state.auth.logged)
 
-  async function verifyToken(){
-    try{
-      let res = await loginToken(localStorage.getItem('token'))
-      if(res.data?.success){
-        dispatch(setCredentials(res.data.response.user))
-      }else{
-        localStorage.removeItem('token')
+    async function verifyToken(){
+      try{
+          let res = await loginToken(localStorage.getItem('token'))
+          if(res?.data.success){
+              dispatch(setCredentials(res.data.response.user))
+        } else {
+            localStorage.removeItem('token')
+        }
+      } catch(error) {
+          localStorage.removeItem('token')
+          console.log(error)
       }
-    }catch(error){
-      localStorage.removeItem('token')
-      console.log(error)
     }
-  }
 
-  useEffect(() => {
-    if(localStorage.getItem('token')){
-      verifyToken()
-    }
-  },[])
-
+    useEffect(() => {
+        if(localStorage.getItem('token')){
+          verifyToken()
+        }
+    },[])
   
-  return (
-    <>
-        <BrowserRouter>
-          <ScrollToTop />
-          <CitiesLayout>
-            <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path='/auth/signup' element={<SignUp />} />
-              <Route path='/auth/signin' element={<SignIn />} />
-              <Route path='/cities' element={<Cities />} />
-              <Route path='/cities/:id' element={<Details />} />
-              <Route path='/newcity' element={<NewCity />} />
-              <Route path='/editcity' element={<EditCity />} />
-              <Route path='/newitinerary' element={<NewItinerary />} />
-              <Route path='/mytinerary/:id' element={<MyTineraries />} />
-              <Route path='/newactivity' element={<NewActivity />} />
-              <Route path='/patchitinerary/:id' element={<PatchItinerary />} />
-              <Route path='*' element={<UnderConstruction />} />
-            </Routes>
-          </CitiesLayout>
-        </BrowserRouter>
-    </>
-  );
+    return (
+        <>
+            <BrowserRouter>
+                <ScrollToTop />
+                <CitiesLayout>
+                    <Routes>
+                        <Route path='/' element={<Home />} />
+                        <Route path='/auth/signup' element={logged ? <UnderConstruction /> : <SignUp />} />
+                        <Route path='/auth/signin' element={logged ? <UnderConstruction /> : <SignIn />} />
+                        <Route path='/cities' element={<Cities />} />
+                        <Route path='/cities/:id' element={<Details />} />
+                        <Route path='/newcity' element={role === "admin" ? <NewCity /> : <Home />} />
+                        <Route path='/editcity' element={role === "admin" ? <EditCity /> : <Home />} />
+                        <Route path='/newitinerary' element={logged ? <NewItinerary /> : <Home />} />
+                        <Route path='/mytinerary/:id' element={logged ? <MyTineraries /> : <Home />} />
+                        <Route path='/newactivity' element={logged ? <NewActivity /> : <Home />} />
+                        <Route path='/patchitinerary/:id' element={logged ? <PatchItinerary /> : <Home />} />
+                        <Route path='*' element={<UnderConstruction />} />
+                    </Routes>
+                </CitiesLayout>
+            </BrowserRouter>
+        </>
+    );
 }
 
 export default App;
