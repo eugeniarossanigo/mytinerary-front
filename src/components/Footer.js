@@ -3,8 +3,7 @@ import {Link as LinkRouter} from 'react-router-dom'
 
 const pages = [
     {_id: 101, name: 'Home', linkTo: '/'},
-    {_id: 102, name: 'Cities', linkTo: '/cities'},
-    {_id: 103, name: 'NewCity', linkTo: '/newcity'}
+    {_id: 102, name: 'Cities', linkTo: '/cities'}
 ]
 
 const linkCreator = (page) => <LinkRouter key={page._id} className="Footer-link" to={page.linkTo}>{page.name}</LinkRouter>
@@ -23,7 +22,7 @@ function Footer() {
     return (
         <div className="Footer-container">
             <footer>
-                <img src="images/logo-white.png" alt="logo" onClick={scrollToTop}></img>
+                <img src="/images/logo-white.png" alt="logo" onClick={scrollToTop}></img>
                 <div className="Footer-nav">
                     <nav>
                         {pages.map(linkCreator)}
