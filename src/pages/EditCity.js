@@ -1,4 +1,4 @@
-import LabelInput from "../components/LabelInput";
+import InputCities from "../components/InputCities";
 import '../styles/EditCity.css'
 import { useRef, useState, useEffect} from 'react'
 import axios from "axios";
@@ -18,7 +18,6 @@ const inputsArray = [
 
 export default function EditCity() {
     const formCity = document.getElementById('Form-city-edit')
-    const formSelect = document.getElementById('Form-select')
     const [citiesArray, setCitiesArray] = useState([])
     const selectCity = useRef("")
 
@@ -87,7 +86,7 @@ export default function EditCity() {
                         open? <form id="Form-city-edit" onSubmit={handleChanged} ref={newCityData}>
                                 <h2>EDIT A CITY</h2>
                                     {inputsArray.map((inputObj,i) => {
-                                        return <LabelInput inputObj={inputObj} values={Object.values(cityData)[i]}/>
+                                        return <InputCities inputObj={inputObj} values={Object.values(cityData)[i]}/>
                                         }
                                     )}
                                     <div className="button-container">
@@ -103,18 +102,3 @@ export default function EditCity() {
         </>
     );
 }
-
-
-
-// {inputsArray.map(inputObj => <LabelInput inputObj={inputObj}/>)}
-
-// {inputsArray.map((inputObj,i) => {
-//         return <LabelInput inputObj={inputObj} values={Object.values(cityData)[i+1]}/>
-//         }
-//     )}
-// {/* <div id="Form-array"></div> */}
-
-// let resultado = Object.jey(data).reduce(function (prev, current) {
-//     prev[current] = data[current]
-//     return prev
-// }, {})

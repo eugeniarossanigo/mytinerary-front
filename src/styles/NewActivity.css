@@ -1,4 +1,8 @@
-#Form-city {
+.newActivity-container{
+    display: flex;
+    justify-content: center;
+}
+#Form-activity-edit {
     width: 840px;
     min-height: 440px;
     background: #e6e6e6;
@@ -10,6 +14,14 @@
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
     position: relative;
+}
+#Form-select {
+    width: 20rem;
+    height: 4rem;
+    background: #e6e6e6;
+    border-radius: 8px;
+    margin: 1.5rem;
+    padding: 20px 30px;
 }
 input{
     width: 100%;
@@ -24,7 +36,7 @@ input{
     border-bottom: 2px solid #bebed2
     
 }
-#Form-city h2 {
+#Form-activity-edit h2 {
     display: flex;
     font-size: 1.8rem;
     justify-content: center;

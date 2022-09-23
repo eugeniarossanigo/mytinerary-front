@@ -28,8 +28,10 @@
 }
 .comment-container{
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    width: 90%;
+    align-items: center;
+    width: 95%;
     min-height: 10rem;
     background: #f2f2f2;
     box-shadow: 0 0 20px 8px #d0d0d0;
@@ -46,22 +48,95 @@
     flex-direction: column;
     align-items: center;
     height: auto;
-    width: 90%;  
+    width: 80%;
 }
-.pers{
-margin: 2rem 0 2rem 0;
-background-color:  #d7e7e3;
-width: 100%;
-border-radius: 10px;
-box-shadow: 0 0 20px 8px #d0d0d0;
-padding-left: 1rem;
+.comment-container form {
+    width: 90%;
+    display: flex;
 }
-.pers p{
-    margin-left: 2rem;
+.itinerary-btns p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.5rem;
+    padding: 1rem;
+    background-color: #377771;
+    border-radius: .3rem;
+    color: white ;
+    text-shadow: 1px 1px black;
 }
+.itinerary-btns p:hover{
+    font-weight: 600;
+    box-shadow: #377771 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+    border-radius: .3rem;
+    transition: 0.5s;
+    color: white;
+}
+.likes-container{
+    display: flex;
+    justify-content: space-around;
+}
+.heart-icon, .arrow-send, .edit-ok{
+    background-color: transparent;
+    border: none;
+}
+.heart-icon, .arrow-send img{
+    width: 1.2rem;
+}
+.heart-icon:hover, .arrow-send img:hover, .x-mark:hover, .edit-icon:hover{
+    border: 2px solid #377771;
+}
+.comments-person, .comment-container input{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem;
+    padding: .5rem;
+    background-color:  #d7e7e3;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 8px #d0d0d0;
+    padding-left: 1rem;
+}
+.comments-person .comments-data {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 10rem;
+}
+.comments-person .comments-btns {
+    width: 5rem;
+}
+.comments-data img{
+    width: 2rem;
+    margin-right: 1rem;
+}
+.comments-btns img{
+    width: 1.5rem;
+    margin-left: .7rem;
+}
+.comments-person h4{
+    font-size: 1.2rem;
+}
+
 
 @media screen and (max-width: 1440px){
     .itinerary-container{
         width: 95%;
+    }
+    .itinerary-title h3{
+        border-bottom: none;
+    }
+    
+}
+@media screen and (max-width: 890px){
+    .itinerary-info{
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .likes-container{
+        justify-content: flex-start;
+        align-items: flex-start;
     }
 }

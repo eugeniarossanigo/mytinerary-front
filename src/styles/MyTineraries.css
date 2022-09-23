@@ -27,7 +27,7 @@
 }
 .itinerary-tittle{
     text-align: center;
-    padding: 1rem;
+    padding: 1rem 0; 
 }
 .itineraries{
     display: flex;
@@ -36,6 +36,26 @@
     align-items: center;
     width: 95%;  
 }
+.itineraries p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    padding: .4rem;
+    background-color: #377771;
+    border-radius: .3rem;
+    color: white ;
+    text-shadow: 1px 1px black;
+}
+.itineraries p:hover{
+    font-weight: 600;
+    box-shadow: #377771 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+    border-radius: .3rem;
+    transition: 0.5s;
+    color: white;
+}
+
 .info-itinerary{
     display: flex;
     flex-direction: column;
@@ -68,6 +88,9 @@ padding: 1rem;
     text-align: center;
     margin-bottom: 1rem;
     object-fit: cover;
+}
+.itineraries h3{
+    padding-bottom: 1rem;
 }
 .itineraries div{
     padding: 1rem;

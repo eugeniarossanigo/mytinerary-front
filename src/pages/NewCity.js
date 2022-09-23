@@ -1,8 +1,7 @@
-import LabelInput from "../components/LabelInput";
+import InputCities from "../components/InputCities";
 import '../styles/NewCity.css'
-import React, { useEffect, useRef, useState } from "react";
-import axios from "axios";
-import apiURL from "../api";
+import React, { useRef } from "react";
+import { useGetNewCityMutation } from "../features/citiesAPI";
 
 const year = new Date().getFullYear()
 
@@ -18,30 +17,13 @@ const inputsArray = [
 
 export default function NewCity() {
     const newInputs = useRef({})
-    const [newData, setNewData] = useState({})
-    
-    // const citiesView = (elem) => (
-    //     `<p>${Object.values(elem).join(" - ")}</p>`
-    // )
+    const [addCity] = useGetNewCityMutation()
 
-    const {city, province, country, photo, population, fundation, description} = newData
-    useEffect(() => {
-        axios.post('http://localhost:4000/cities', {
-            city, province, country, photo, population, fundation, description
-        })
-            .then(response=>{
-                console.log(response.data)
-        })
-    }, [newData])
-
-    const handleChanged = (e) => {
+    const handleChanged = async(e) => {
         e.preventDefault()
         const formCity = document.getElementById('Form-city')
-        // const formArray = document.getElementById('Form-array')
-        const formObject = Object.fromEntries(new FormData(newInputs.current))
-        console.log(formObject)
-        setNewData(formObject)
-        // formArray.innerHTML += citiesView(formObject)
+        const newData = Object.fromEntries(new FormData(newInputs.current))
+        await addCity(newData)
         formCity.reset()
     }
 
@@ -50,12 +32,11 @@ export default function NewCity() {
             <main>
                 <form id="Form-city" onSubmit={handleChanged} ref={newInputs}>
                     <h2>CREATE A NEW CITY</h2>
-                        {inputsArray.map(inputObj => <LabelInput inputObj={inputObj} values={""}/>)}
-                        <div className="button-container">
-                            <button className="Form-btn" type="submit">SEND</button>
-                        </div>
+                    {inputsArray.map(inputObj => <InputCities inputObj={inputObj} values={""}/>)}
+                    <div className="button-container">
+                        <button className="Form-btn" type="submit">SEND</button>
+                    </div>
                 </form>
-                <div id="Form-array"></div>
             </main>
         </>
     );
