@@ -4,7 +4,6 @@ import citiesAPI from './features/citiesAPI'
 import commentsAPI from './features/commentsAPI'
 import itinerariesAPI from './features/itinerariesAPI.js'
 import usersAPI from './features/usersAPI'
-// import userSlice from './features/userSlice'
 import userReducer from './features/userSlice'
 import reloadSlice from './features/reloadSlice'
 
