@@ -8,11 +8,6 @@ import ActivityCard from './ActivitiyCard';
 import CommentCard from "./CommentCard";
 import { reload } from '../features/reloadSlice';
 
-// const arrayComments = [
-//     {user:'Euge', comment:'WOWWWWW'},
-//     {user:'Marcos', comment:'EXCELENTEE'}
-// ]
-
 function ItineraryCard({itinerary}) {
 
     const newInput = useRef("")
@@ -23,21 +18,18 @@ function ItineraryCard({itinerary}) {
     const [likeDislike] = useLikeDislikeMutation()
     const reloaded = useSelector(state => state.reload.reloadState)
     const [arrayComments, setArrayComments] = useState([])
+    const likesLength = itinerary.likes.length
 
     const handleClick = () => { open ? setOpen(false) : setOpen(true) }
 
     const {data: activities} = useGetActivityItineraryQuery(itinerary._id)
-    // const {data: comments} = useGetCommentItineraryQuery(itinerary._id)
     
-    const [addComment, result] = useGetNewCommentMutation()
+    const [addComment] = useGetNewCommentMutation()
     const [showComments] = useGetAllCommentsMutation()
-    // setArrayComments(comments?.response)
-    // const arrayComments = comments ? comments?.response : []
 
     const handleShowComments = async() =>{
         try {
             let res = await showComments(itinerary._id)
-            console.log(res)
             setArrayComments(res?.data.response)           
         } catch (error) {
             console.log(error)
@@ -59,6 +51,14 @@ function ItineraryCard({itinerary}) {
 
     const handleLikes = async(e) => {
         e.preventDefault()
+        try {
+            let res = await likeDislike(itinerary._id)
+            if (res?.data.success){
+                dispatch(reload())
+            }
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     return (
@@ -79,13 +79,12 @@ function ItineraryCard({itinerary}) {
                     <div>
                         <h4>Likes:</h4>
                         <div className="likes-container">
-                            <img className="heart-icon" src="/images/heart-empty.png" alt="heart" onClick={handleLikes} />
-                            {/* ({itinerary.likes.length === 0} ?
-                                
+                            { user && itinerary.likes.includes(userId) ?
+                                <img className="heart-icon" src="/images/heart-full.png" alt="heart" onClick={handleLikes} />
                             :
                                 <img className="heart-icon" src="/images/heart-empty.png" alt="heart" onClick={handleLikes} />
-                            ) */}
-                            <p>{itinerary.likes.length}</p>
+                            }
+                            <p>{likesLength}</p>
                         </div>
                     </div>
                     <div>

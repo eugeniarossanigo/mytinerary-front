@@ -3,26 +3,34 @@ import { useParams } from "react-router-dom";
 import { Link as LinkRouter } from 'react-router-dom'
 import ItineraryCard from "../components/ItineraryCard";
 import { useGetCityIdQuery } from '../features/citiesAPI'
-import { useGetItineraryCityQuery } from "../features/itinerariesAPI";
+import { useGetItineraryCityQuery, useGetItinerariesMutation } from "../features/itinerariesAPI";
 import { useEffect, useState } from "react";
+import { reload } from '../features/reloadSlice';
+import { useSelector } from "react-redux";
 
 export default function Details() {
     const { id } = useParams()
-    
+    const [arrayItineraries, setArrayItineraries] = useState([])
     const {data: cities} = useGetCityIdQuery(id)
-    const {data: itineraries} = useGetItineraryCityQuery(id)
+    const reloaded = useSelector(state => state.reload.reloadState)
+    // const {data: itineraries} = useGetItineraryCityQuery(id)
+    const [showItineraries] = useGetItinerariesMutation()
     let city = cities?.response
-    const [reload, setReload] = useState(false)
-
-    // function handleReload() {
-    //     setReload(!reload)
-    // }
-
-    // useEffect(() => {
-    //     refetch()
-    // }, [reload])
 
     let date = new Date(city?.fundation)
+
+    const handleShowItineraries = async() =>{
+        try {
+            let res = await showItineraries()
+            setArrayItineraries(res?.data.response)           
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        handleShowItineraries()
+    }, [reloaded])
 
     return (
         <>
@@ -63,7 +71,7 @@ export default function Details() {
                     </div>
                 </div>
             </div>  
-            {itineraries?.response.map(itinerary=> <ItineraryCard itinerary={itinerary}/>)}
+            {arrayItineraries.map(itinerary=> <ItineraryCard itinerary={itinerary}/>)}
             <LinkRouter className="Details-btn-back" to={"/cities"}>BACK</LinkRouter>
         </main>
         </>
