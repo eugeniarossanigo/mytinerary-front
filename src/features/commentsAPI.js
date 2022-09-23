@@ -8,9 +8,6 @@ export const commentsAPI = createApi({
     }),
 
     endpoints: (builder) => ({
-        // getAllComments: builder.query({
-        //     query: () => '/comments'
-        // }),
         getAllComments: builder.mutation({
             query: (id) => ({
                 url:  `/comments?itinerary=${id}`,

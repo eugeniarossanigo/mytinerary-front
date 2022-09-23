@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import * as jose from 'jose'
 import { useGetNewUserMutation } from "../features/usersAPI";
+import { useNavigate } from "react-router-dom";
 
 export default function SignUpGoogle() {
-
+    const navigate = useNavigate()
     const buttonDiv = useRef(null)
     const [addUser, result] = useGetNewUserMutation();
 
@@ -12,7 +13,7 @@ export default function SignUpGoogle() {
 
         let data = {
             name: userObject.name,
-            name: userObject.family_name,
+            lastName: userObject.family_name,
             photo: userObject.picture,
             mail: userObject.email,
             country: 'Argentina',
@@ -21,6 +22,12 @@ export default function SignUpGoogle() {
             from: 'google'
         }
         await addUser(data)
+        .then(response => {
+            navigate("/auth/signin", {replace:true})
+        })
+        .catch(error => {
+            console.log(error)
+        })
     }
 
     useEffect(() => {

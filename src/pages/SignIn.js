@@ -22,7 +22,7 @@ export default function SignIn() {
     // const modalOk = document.querySelector('.Modal-container-ok')
 
     const newInputs = useRef({})
-    const [userLogin, result] = useGetUserLoginMutation()
+    const [userLogin] = useGetUserLoginMutation()
 
     const closeModal = (e) => {
         e.preventDefault()
