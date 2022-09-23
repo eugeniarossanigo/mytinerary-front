@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 const inputsArray = [
         {_id: 602, name: "mail", type: "email"},
-        {_id: 603, name: "password", type: "text"},
+        {_id: 603, name: "password", type: "password"},
         ]
 
 export default function SignIn() {
