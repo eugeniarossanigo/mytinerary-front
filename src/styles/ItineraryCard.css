@@ -54,6 +54,25 @@
     width: 90%;
     display: flex;
 }
+.itinerary-btns p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.5rem;
+    padding: 1rem;
+    background-color: #377771;
+    border-radius: .3rem;
+    color: white ;
+    text-shadow: 1px 1px black;
+}
+.itinerary-btns p:hover{
+    font-weight: 600;
+    box-shadow: #377771 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+    border-radius: .3rem;
+    transition: 0.5s;
+    color: white;
+}
 .likes-container{
     display: flex;
     justify-content: space-around;
@@ -105,5 +124,19 @@
 @media screen and (max-width: 1440px){
     .itinerary-container{
         width: 95%;
+    }
+    .itinerary-title h3{
+        border-bottom: none;
+    }
+    
+}
+@media screen and (max-width: 890px){
+    .itinerary-info{
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .likes-container{
+        justify-content: flex-start;
+        align-items: flex-start;
     }
 }
