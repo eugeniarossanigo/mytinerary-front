@@ -13,6 +13,7 @@ import SignUp from './SignUp';
 import SignIn from './SignIn';
 import NewItinerary from './NewItinerary';
 import NewActivity from './NewActivity';
+import PatchItinerary from './PatchItinerary';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
               <Route path='/newitinerary' element={<NewItinerary />} />
               <Route path='/mytinerary/:id' element={<MyTineraries />} />
               <Route path='/newactivity' element={<NewActivity />} />
+              <Route path='/patchitinerary' element={<PatchItinerary />} />
               <Route path='*' element={<UnderConstruction />} />
             </Routes>
           </CitiesLayout>
