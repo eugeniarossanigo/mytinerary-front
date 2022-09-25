@@ -1,0 +1,39 @@
+.comments-person, .comment-container input{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem;
+    padding: .5rem;
+    background-color:  #d7e7e3;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 8px #d0d0d0;
+    padding-left: 1rem;
+}
+.comments-person .comments-data {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 10rem;
+}
+.comments-person .comments-btns {
+    width: 5rem;
+}
+.comments-data img{
+    width: 2rem;
+    margin-right: 1rem;
+}
+.comments-btns img{
+    width: 1.3rem;
+    margin-left: .7rem;
+}
+.comments-person h4{
+    font-size: 1.2rem;
+}
+.x-mark:hover, .edit-icon:hover{
+    border: 2px solid #377771;
+}
+.edit-ok{
+    background-color: transparent;
+    border: none;
+}

@@ -13,7 +13,7 @@
 .itinerary-title h3{
     text-transform: uppercase;
     font-size: 1.5rem;
-    margin: 2rem 0 1.5rem 0;
+    margin: 2rem 0 1rem 0;
     padding-bottom: .5rem;
     text-align: center;
     width: 25rem;
@@ -41,7 +41,7 @@
 .comment-title{
     font-size: 1rem;
     text-align: center;
-    margin-bottom: 1rem;
+    padding-bottom: .5rem;
 }
 .comment{
     display: flex;
@@ -54,18 +54,26 @@
     width: 90%;
     display: flex;
 }
-.itinerary-btns p{
+.itinerary-btns{
+    display: flex;
+}
+.itinerary-delete{
+    border: none;
+}
+.itinerary-edit, .itinerary-delete, .itinerary-one{
+    font-size: .8rem;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 4.5rem;
-    padding: 1rem;
+    padding: .5rem 1rem;
+    margin: 0 1rem;
     background-color: #377771;
     border-radius: .3rem;
     color: white ;
     text-shadow: 1px 1px black;
 }
-.itinerary-btns p:hover{
+.itinerary-edit:hover, .itinerary-delete:hover, .itinerary-one:hover{
     font-weight: 600;
     box-shadow: #377771 2px 8px 8px -5px;
     transform: translate3d(0, 2px, 0);
@@ -77,47 +85,22 @@
     display: flex;
     justify-content: space-around;
 }
-.heart-icon, .arrow-send, .edit-ok{
+.arrow-down{
+    margin-bottom: 1rem;
+}
+.heart-icon, .arrow-send, .arrow-down {
     background-color: transparent;
     border: none;
 }
-.heart-icon, .arrow-send img{
+.heart-icon, .arrow-send img, .arrow-down img{
     width: 1.2rem;
 }
-.heart-icon:hover, .arrow-send img:hover, .x-mark:hover, .edit-icon:hover{
+.heart-icon:hover, .arrow-send img:hover {
     border: 2px solid #377771;
 }
-.comments-person, .comment-container input{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 1rem;
-    padding: .5rem;
-    background-color:  #d7e7e3;
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 0 20px 8px #d0d0d0;
-    padding-left: 1rem;
-}
-.comments-person .comments-data {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 10rem;
-}
-.comments-person .comments-btns {
-    width: 5rem;
-}
-.comments-data img{
-    width: 2rem;
-    margin-right: 1rem;
-}
-.comments-btns img{
-    width: 1.5rem;
-    margin-left: .7rem;
-}
-.comments-person h4{
-    font-size: 1.2rem;
+.arrow-down img:hover {
+    transform: translate3d(0, 2px, 0);
+    transition: 0.5s;
 }
 
 
