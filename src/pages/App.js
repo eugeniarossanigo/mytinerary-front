@@ -27,26 +27,26 @@ function App() {
     const role = user?.role
     const logged = useSelector(state => state.auth.logged)
 
-    async function verifyToken(){
-      try{
-          let res = await loginToken(localStorage.getItem('token'))
-          if(res?.data.success){
-              dispatch(setCredentials(res.data.response.user))
-        } else {
+    async function verifyToken() {
+        try {
+            let res = await loginToken(localStorage.getItem('token'))
+            if (res?.data.success) {
+                dispatch(setCredentials(res.data.response.user))
+            } else {
+                localStorage.removeItem('token')
+            }
+        } catch (error) {
             localStorage.removeItem('token')
+            console.log(error)
         }
-      } catch(error) {
-          localStorage.removeItem('token')
-          console.log(error)
-      }
     }
 
     useEffect(() => {
-        if(localStorage.getItem('token')){
-          verifyToken()
+        if (localStorage.getItem('token')) {
+            verifyToken()
         }
-    },[])
-  
+    }, [])
+
     return (
         <>
             <BrowserRouter>
