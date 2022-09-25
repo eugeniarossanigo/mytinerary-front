@@ -1,6 +1,6 @@
 .activities-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: flex-end;
     background-color: #d7e7e3;
     width: 95%;

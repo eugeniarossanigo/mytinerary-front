@@ -4,6 +4,7 @@ import InputItineraries from '../components/inputItineraries';
 import { useGetNewItineraryMutation } from '../features/itinerariesAPI';
 import { useGetAllCitiesQuery } from '../features/citiesAPI'
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const inputsArray = [
                     {_id: 301, name: "name", type: "text", ph: "Museum trip"},
@@ -16,15 +17,11 @@ export default function NewItinerary() {
     const selectCity = useRef("")
     const {data: cities} = useGetAllCitiesQuery()
     const citiesArray = cities?.response
+    const navigate = useNavigate()
     
     const optionsSelect = (city) => (
         <option value={city._id} key={city._id}>{city.city}</option>
     )
-
-    const handleSelect = (e) => {
-        e.preventDefault()
-        setOpen(true)
-    }
 
     const [open, setOpen] = useState(false)
     const newInputs = useRef({})
@@ -34,6 +31,11 @@ export default function NewItinerary() {
     const cityId = selectCity.current.value
     let values = {user:userId, city:cityId, likes:[]}
 
+    const handleSelect = (e) => {
+        e.preventDefault()
+        setOpen(true)
+    }
+
     const handleChanged = async(e) => {
         e.preventDefault()
         const formItinerary = document.getElementById('Form-itinerary')
@@ -41,6 +43,7 @@ export default function NewItinerary() {
         newData.tags = newData.tags.split(',')
         await addItinerary({...newData, ...values })
         formItinerary.reset()
+        navigate('/newactivity')
     }
 
     return (

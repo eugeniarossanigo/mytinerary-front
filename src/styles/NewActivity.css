@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
 }
-#Form-activity-edit {
+#Form-activity {
     width: 840px;
     min-height: 440px;
     background: #e6e6e6;
@@ -36,7 +36,7 @@ input{
     border-bottom: 2px solid #bebed2
     
 }
-#Form-activity-edit h2 {
+#Form-activity h2 {
     display: flex;
     font-size: 1.8rem;
     justify-content: center;

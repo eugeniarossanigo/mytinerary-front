@@ -2,9 +2,9 @@ import '../styles/Footer.css';
 import {Link as LinkRouter} from 'react-router-dom'
 
 const pages = [
-    {_id: 101, name: 'Home', linkTo: '/'},
-    {_id: 102, name: 'Cities', linkTo: '/cities'}
-]
+            {_id: 101, name: 'Home', linkTo: '/'},
+            {_id: 102, name: 'Cities', linkTo: '/cities'}
+        ]
 
 const linkCreator = (page) => <LinkRouter key={page._id} className="Footer-link" to={page.linkTo}>{page.name}</LinkRouter>
 

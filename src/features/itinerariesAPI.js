@@ -25,8 +25,13 @@ export const itinerariesAPI = createApi({
         getItineraryCity: builder.query({
             query: (city) => '/itineraries?city=' + city
         }),
-        getItineraryUser: builder.query({
-            query: (user) => '/itineraries?user=' + user
+        getItineraryUser: builder.mutation({
+            query(id){
+                return{
+                    url: '/itineraries?user=' +id,
+                    method: 'GET'
+                }
+            }
         }),
         getNewItinerary: builder.mutation({
             query(itinerary){
@@ -46,6 +51,14 @@ export const itinerariesAPI = createApi({
                 }
             }
         }),
+        getDeleteItinerary: builder.mutation({
+            query(id){
+                return{
+                    url: 'itineraries/' + id,
+                    method: 'DELETE'
+                }
+            }
+        }),
         likeDislike: builder.mutation({
             query: (id) => ({
                 url: '/itineraries/likes/' + id,
@@ -58,4 +71,4 @@ export const itinerariesAPI = createApi({
 
 export default itinerariesAPI;
 
-export const { useGetItinerariesMutation, useGetAllItinerariesQuery, useGetItineraryCityQuery, useGetItineraryUserQuery, useGetNewItineraryMutation, useGetPatchItineraryMutation, useGetItineraryIdQuery, useLikeDislikeMutation } = itinerariesAPI
+export const { useGetItinerariesMutation, useGetDeleteItineraryMutation, useGetAllItinerariesQuery, useGetItineraryCityQuery, useGetItineraryUserMutation, useGetNewItineraryMutation, useGetPatchItineraryMutation, useGetItineraryIdQuery, useLikeDislikeMutation } = itinerariesAPI

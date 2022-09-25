@@ -8,7 +8,7 @@ export default function HamburguerMenu(props) {
     return (
         <>
             <nav className="HamburguerMenu">
-                <button className="Header-link" onClick={handleClick}><img src='./images/menu.png' alt="add-user"></img></button>
+                <button className="Header-link" onClick={handleClick}><img src='/images/menu.png' alt="menu"></img></button>
                 <div>
                     {
                     open? <div className='Hamburguer-logs'>

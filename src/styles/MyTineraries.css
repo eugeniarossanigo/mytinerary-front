@@ -1,8 +1,3 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
 .pag-container{
     display: flex;
     justify-content: center;
@@ -10,7 +5,6 @@
     width: 90%;
     box-sizing: border-box;
 }
-
 .itinerary-container {
     display: flex;
     align-items: center;
@@ -25,9 +19,9 @@
     box-sizing: border-box;
     margin-top: 3rem;
 }
-.itinerary-tittle{
+.itinerary-title{
     text-align: center;
-    padding: 1rem 0; 
+    padding: 1rem 0;
 }
 .itineraries{
     display: flex;
@@ -36,26 +30,11 @@
     align-items: center;
     width: 95%;  
 }
-.itineraries p{
+.myitinerary-btns {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 3rem;
-    padding: .4rem;
-    background-color: #377771;
-    border-radius: .3rem;
-    color: white ;
-    text-shadow: 1px 1px black;
+    width: 15rem;
+    justify-content: space-evenly;
 }
-.itineraries p:hover{
-    font-weight: 600;
-    box-shadow: #377771 2px 8px 8px -5px;
-    transform: translate3d(0, 2px, 0);
-    border-radius: .3rem;
-    transition: 0.5s;
-    color: white;
-}
-
 .info-itinerary{
     display: flex;
     flex-direction: column;
@@ -65,6 +44,7 @@
 }
 .itinerary-user {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     background-color: #d7e7e3;
     min-width: 70%;
@@ -72,30 +52,39 @@
     box-shadow: 0 0 20px 8px #d0d0d0;
     border-radius: 20px;
 }
-
 .itinerary-user img {
     width: 15rem;
-    height: 15rem;
-    margin: 1rem;
     border-radius: 50%;
 }
+.itinerary-user-data{
+    padding-left: 1.5rem;
+}
 .itinerary-card{
-display: flex;
-align-items: center;
-padding: 1rem;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
 }
 .itineraries h2{
+    font-size: 1.5rem;
     text-align: center;
     margin-bottom: 1rem;
     object-fit: cover;
 }
 .itineraries h3{
-    padding-bottom: 1rem;
+    text-align: center;
+    font-size: 1.4rem;
+    border-radius: .5rem;
+    color: #d7e7e3;
+    background-color: #DFAA5E;
+    padding: .8rem;
+    margin-bottom: 1rem;
 }
-.itineraries div{
+.info-itinerary{
     padding: 1rem;
     margin: 2rem 0 2rem 0;
-    width: 90%;
+    width: 70%;
     background-color:#d0d0d0 ;
     border-radius: 10px;
     box-shadow: 0 0 20px 8px #7978783a;
@@ -103,21 +92,28 @@ padding: 1rem;
 .itinerarios div h3{
     margin: 0 0 1rem 2rem;
 }
+
+
 @media screen and (max-width: 768px){
+    .itinerary-container{
+        width: 95%;
+    }
     .itinerary-user{
         flex-direction: column;
         align-items: center;
         width: 90%;
     }
     .itinerary-card{
+        flex-direction: column;
         padding: 0;
         justify-content: center;
-        
-        }
-        .info-itinerary {
-            justify-content: center;
-            align-items: center;
-            width: 95%;
-            
-        }
+    }
+    .info-itinerary {
+        justify-content: center;
+        align-items: center;
+        width: 95%;
+    }
+    .itinerary-user-data{
+        padding: 1rem 0;
+    }
 }

@@ -16,6 +16,7 @@ export default function Header() {
     const dispatch = useDispatch()
 
     const user = useSelector(state => state.auth.user)
+    const userRole = user?.role
     const logged = useSelector(state => state.auth.logged)
 
     const [open, setOpen] = useState(false)
@@ -55,6 +56,9 @@ export default function Header() {
                                     <div className='Header-logs'>
                                         { open? <div>
                                                 <LinkRouter key="107" className="Header-link" to={mytinerary}>{user?.name}</LinkRouter>
+                                                { user && userRole == "admin" &&
+                                                    <LinkRouter key="106" className="Header-link" to='/auth/signup'>Create</LinkRouter>
+                                                }
                                                 <div key="108" className="Header-link" onClick={handleOut}>SignOut</div>
                                             </div> : null }
                                     </div>
