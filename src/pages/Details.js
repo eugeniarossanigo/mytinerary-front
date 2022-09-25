@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { Link as LinkRouter } from 'react-router-dom'
 import ItineraryCard from "../components/ItineraryCard";
 import { useGetCityIdQuery } from '../features/citiesAPI'
-import { useGetItineraryCityQuery, useGetItinerariesMutation } from "../features/itinerariesAPI";
+import { useGetItinerariesMutation } from "../features/itinerariesAPI";
 import { useEffect, useState } from "react";
 import { reload } from '../features/reloadSlice';
 import { useSelector } from "react-redux";

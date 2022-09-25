@@ -1,7 +1,12 @@
 import InputItineraries from "../components/inputItineraries";
 import '../styles/NewActivity.css'
 import { useRef, useState, useEffect} from 'react'
-import axios from "axios";
+import { useGetNewActivityMutation } from "../features/activitiesAPI";
+import { useGetAllItinerariesQuery } from "../features/itinerariesAPI";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const inputsArray = [
     {_id: 301, name: "name", type: "text"},
@@ -10,59 +15,57 @@ const inputsArray = [
     ]
 
 export default function NewActivity() {
-    const formActivity = document.getElementById('Form-activity-edit')
-    const formSelect = document.getElementById('Form-select')
-    const [itinerariesArray, setItinerariesArray] = useState([])
-    const selectItinerary = useRef("")
-
-    useEffect(() => {
-        axios.get('http://localhost:4000/itineraries')
-        .then(response => {
-            setItinerariesArray(response.data.response)
-        })
-        .catch(error => {
-            console.log(error)
-        })
-    }, [])
-
-    const optionsSelect = (itinerary) => (
-        <option value={itinerary._id} key={itinerary._id}>{itinerary.name}</option>
-    )
     
-    const [activityData, setActivityData] = useState({})
-    const {_id, name, photo, itinerary} = activityData
-    const  newActivityData = useRef({})
+    const selectItinerary = useRef("")
+    const {data: itineraries} = useGetAllItinerariesQuery()
+    const itinerariesArray = itineraries?.response
+    const navigate = useNavigate()
+    
+    const optionsSelect = (itinerary) => (
+        <option value={itinerary._id} key={itinerary._id}>{itinerary.city.city} - {itinerary.name}</option>
+    )
 
     const [open, setOpen] = useState(false)
-    
+    const newInputs = useRef({})
+    const [addActivity] = useGetNewActivityMutation() 
+    const itineraryId = selectItinerary.current.value
+    let values = {itinerary: itineraryId}
+
     const handleSelect = (e) => {
         e.preventDefault()
-        axios.get('http://localhost:4000/itineraries/'+ (selectItinerary.current.value))
-            .then(response => {
-                setOpen(true)
-                setActivityData(response.data.response)
-            })
-            .catch(error => {
-                console.log(error)
-            })
+        setOpen(true)
     }
 
-    useEffect(() => {
-        axios.put('http://localhost:4000/itineraries/'+ (selectItinerary.current.value),
-            {_id, name, photo, itinerary}
-            )
-            .then(response => {
-                console.log(response.data.response)
-        })
-    }, [activityData])
-    
-    const handleChanged = (e) => {
+    const handleSend = async(e) => {
         e.preventDefault()
-        const formObject = Object.fromEntries(new FormData(newActivityData.current))
-        setActivityData(formObject)
-        setOpen(false)
-        newActivityData.current.reset()
-        formActivity.reset()
+        const formActivity = document.getElementById('Form-activity')
+        const newData = Object.fromEntries(new FormData(newInputs.current))
+        await addActivity({...newData, ...values})
+        .then(response =>{
+            formActivity.reset()
+            toast.success("Activity created", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+            })
+            navigate('/cities')
+        })
+        .catch(error =>{
+            console.log(error)
+            toast.error("Try again!", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+            });
+        })
     }
 
     return (
@@ -71,23 +74,25 @@ export default function NewActivity() {
             <div className="newActivity-container">
                 <div>
                     <form id="Form-select">
-                        <select onChange={handleSelect} ref={newActivityData}>
-                            <option>Select one activity:</option>
-                            {itinerariesArray.map(optionsSelect)}
+                        <select onChange={handleSelect} ref={selectItinerary}>
+                            <option>Select one itinerary:</option>
+                            {itinerariesArray?.map(optionsSelect)}
                         </select>
                     </form>
-                    {
-                        open? <form id="Form-activity-edit" onSubmit={handleChanged} ref={selectItinerary}>
-                                <h2>NEW ACTIVITY</h2>
-                                    {inputsArray.map((inputObj,i) => {
-                                        return <InputItineraries inputObj={inputObj} values={Object.values(activityData)[i]}/>
-                                        }
-                                    )}
-                                    <div className="button-container">
-                                        <button className="Form-btn" type="submit">SEND</button>
-                                    </div>
-                            </form>
-                        : null
+                    { open ?
+                        <form id="Form-activity" onSubmit={handleSend} ref={newInputs}>
+                            <h2>NEW ACTIVITY</h2>
+                            <label key="345" className="Form-label">name:
+                                <input className="Form-input" type="text" name="name" placeholder="e.g. Walk tour" required />
+                            </label>
+                            <label key="346" className="Form-label">photo:
+                                <input className="Form-input" type="photo" name="photo" placeholder="(must be a url)" required />
+                            </label>
+                            <div className="button-container">
+                                <button className="Form-btn" type="submit">SEND</button>
+                            </div>
+                        </form>
+                    : null
                     }
                     
                 </div>

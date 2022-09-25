@@ -4,6 +4,9 @@ import InputItineraries from '../components/inputItineraries';
 import { useGetNewItineraryMutation } from '../features/itinerariesAPI';
 import { useGetAllCitiesQuery } from '../features/citiesAPI'
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const inputsArray = [
                     {_id: 301, name: "name", type: "text", ph: "Museum trip"},
@@ -16,15 +19,11 @@ export default function NewItinerary() {
     const selectCity = useRef("")
     const {data: cities} = useGetAllCitiesQuery()
     const citiesArray = cities?.response
+    const navigate = useNavigate()
     
     const optionsSelect = (city) => (
         <option value={city._id} key={city._id}>{city.city}</option>
     )
-
-    const handleSelect = (e) => {
-        e.preventDefault()
-        setOpen(true)
-    }
 
     const [open, setOpen] = useState(false)
     const newInputs = useRef({})
@@ -34,13 +33,42 @@ export default function NewItinerary() {
     const cityId = selectCity.current.value
     let values = {user:userId, city:cityId, likes:[]}
 
+    const handleSelect = (e) => {
+        e.preventDefault()
+        setOpen(true)
+    }
+
     const handleChanged = async(e) => {
         e.preventDefault()
         const formItinerary = document.getElementById('Form-itinerary')
         const newData = Object.fromEntries(new FormData(newInputs.current))
         newData.tags = newData.tags.split(',')
         await addItinerary({...newData, ...values })
-        formItinerary.reset()
+        .then(response =>{
+            formItinerary.reset()
+            toast.success("Itinerary created", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+            })
+            navigate('/newactivity')
+        })
+        .catch(error =>{
+            console.log(error)
+            toast.error("Try again!", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+            });
+        })
     }
 
     return (

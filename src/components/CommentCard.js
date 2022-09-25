@@ -53,8 +53,8 @@ function CommentCard({comment}) {
                 <div className='comments-btns'>
                     { user && (user?.id === comment.user._id) &&
                         <div>
-                            <img className="x-mark" src="/images/x-mark.png" alt="del" onClick={handleDelete} />
                             <img className="edit-icon" src="/images/edit-icon.png" alt="edit" onClick={handleClick} />
+                            <img className="x-mark" src="/images/x-mark.png" alt="del" onClick={handleDelete} />
                         </div>
                     }
                 </div>
