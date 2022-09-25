@@ -8,6 +8,9 @@ import Modal from './Modal';
 import '../styles/Modals.css'
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteCredentials } from '../features/userSlice';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 export default function Header() {
     const modal = document.querySelector('.Modal-container-ok')
@@ -24,21 +27,24 @@ export default function Header() {
 
     let mytinerary = '/mytinerary/'+ user?.id
 
-    const closeModal = (e) => {
-        e.preventDefault()
-        modal.classList.remove('Modal-container--show')
-    }
-
     const handleOut = () => {
         let mail = user?.mail
         userLogout({ mail })
             .then(response => {
                 localStorage.removeItem('token')
                 dispatch(deleteCredentials())
-                modal.classList.add('Modal-container--show')
+                toast.success("Bye!!", {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    progress: undefined,
+                })
                 navigate("/", {replace:true})
             })
-            .catch(error => 
+            .catch(error =>
                 console.log(error))
     }
 
@@ -76,9 +82,6 @@ export default function Header() {
                             }
                     </div>
                 </header>
-            </div>
-            <div className="Modal-container Modal-container-ok">
-                <Modal closeModal={closeModal} msg1={"Bye!!"} msg2={"See you soon!"} msg3={"CLOSE"}/>
             </div>
         </>
     )

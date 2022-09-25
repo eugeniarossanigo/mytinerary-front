@@ -8,6 +8,8 @@ import ActivityCard from './ActivitiyCard';
 import CommentCard from "./CommentCard";
 import { reload } from '../features/reloadSlice';
 import {Link as LinkRouter} from 'react-router-dom'
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function ItineraryCard({itinerary}) {
 
@@ -65,6 +67,20 @@ function ItineraryCard({itinerary}) {
     
     const handleDelete = async() => {
         await deleteItinerary(itinerary._id)
+        .then(response =>{
+            toast.success("Itinerary deleted", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+            })
+        })
+        .catch(error =>{
+            console.log(error)
+        })
         dispatch(reload())
     }
 

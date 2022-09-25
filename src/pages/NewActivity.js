@@ -5,6 +5,8 @@ import { useGetNewActivityMutation } from "../features/activitiesAPI";
 import { useGetAllItinerariesQuery } from "../features/itinerariesAPI";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const inputsArray = [
     {_id: 301, name: "name", type: "text"},
@@ -39,8 +41,31 @@ export default function NewActivity() {
         const formActivity = document.getElementById('Form-activity')
         const newData = Object.fromEntries(new FormData(newInputs.current))
         await addActivity({...newData, ...values})
-        formActivity.reset()
-        navigate('/cities')
+        .then(response =>{
+            formActivity.reset()
+            toast.success("Activity created", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+            })
+            navigate('/cities')
+        })
+        .catch(error =>{
+            console.log(error)
+            toast.error("Try again!", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+            });
+        })
     }
 
     return (

@@ -6,6 +6,8 @@ import { useGetUserLoginMutation } from "../features/usersAPI";
 import { useDispatch } from "react-redux";
 import { setCredentials } from '../features/userSlice';
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const inputsArray = [
         {_id: 602, name: "mail", type: "email"},
@@ -30,10 +32,28 @@ export default function SignIn() {
             localStorage.setItem('token', response.data.response.token)
             dispatch(setCredentials(response.data.response.user))
             formSignin.reset()
+            toast.success("Welcome back", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+            })
             navigate("/",{replace:true})
         })
         .catch(error => {
             console.log(error)
+            toast.error("Try again!", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+            });
         })
     }
 

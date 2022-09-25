@@ -5,6 +5,8 @@ import { useGetNewItineraryMutation } from '../features/itinerariesAPI';
 import { useGetAllCitiesQuery } from '../features/citiesAPI'
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const inputsArray = [
                     {_id: 301, name: "name", type: "text", ph: "Museum trip"},
@@ -42,8 +44,31 @@ export default function NewItinerary() {
         const newData = Object.fromEntries(new FormData(newInputs.current))
         newData.tags = newData.tags.split(',')
         await addItinerary({...newData, ...values })
-        formItinerary.reset()
-        navigate('/newactivity')
+        .then(response =>{
+            formItinerary.reset()
+            toast.success("Itinerary created", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+            })
+            navigate('/newactivity')
+        })
+        .catch(error =>{
+            console.log(error)
+            toast.error("Try again!", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+            });
+        })
     }
 
     return (

@@ -19,6 +19,7 @@ import { useGetUserLoginTokenMutation } from '../features/usersAPI';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { setCredentials } from '../features/userSlice';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
 
@@ -43,11 +44,11 @@ function App() {
     }
 
     useEffect(() => {
-        if(localStorage.getItem('token')){
-          verifyToken()
+        if (localStorage.getItem('token')) {
+            verifyToken()
         }
-    },[])
-  
+    }, [])
+
     return (
         <>
             <BrowserRouter>
@@ -71,6 +72,7 @@ function App() {
                     </Routes>
                 </CitiesLayout>
             </BrowserRouter>
+            <ToastContainer />
         </>
     );
 }
