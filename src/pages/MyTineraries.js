@@ -58,9 +58,6 @@ function MyTineraries() {
                                             <h2>{itinerary.city.city}</h2>
                                             <h3>{itinerary.name}</h3>
                                             <div className='myitinerary-btns'>
-                                                {/* <LinkRouter className="itinerary-one" to={'/oneitinerary/'+itinerary._id}>
-                                                    <p>VIEW</p>
-                                                </LinkRouter> */}
                                                 <LinkRouter className="itinerary-edit" to={'/patchitinerary/'+itinerary._id}>
                                                     <p>EDIT</p>
                                                 </LinkRouter>
