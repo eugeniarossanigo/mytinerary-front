@@ -48,6 +48,6 @@ export const usersAPI = createApi({
         })
     })
 })
-
+git 
 export default usersAPI;
 export const { useGetAllUsersQuery, useGetUserMailQuery, useGetUserIdQuery, useGetNewUserMutation, useGetUserLoginTokenMutation, useGetUserLoginMutation, useGetUserLogoutMutation } = usersAPI
