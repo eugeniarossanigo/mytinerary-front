@@ -23,7 +23,7 @@ function MyTineraries() {
     const handleShowItineraries = async() =>{
         try {
             let res = await showUserItinearies(userId)
-            setArrayItineraries(res?.data.response)           
+            setArrayItineraries(res?.data.response)
         } catch (error) {
             console.log(error)
         }
@@ -70,8 +70,7 @@ function MyTineraries() {
                         </div>
                     ) : (
                         <p>This user has 0 itineraries for now</p>
-                    )
-                    }
+                    )}
                 </div>
             </main>
         </>

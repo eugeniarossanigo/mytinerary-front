@@ -105,7 +105,7 @@ function ItineraryCard({itinerary}) {
                     </div>
                     <div>
                         <h4>Price:</h4>
-                        <p>{itinerary.price}</p>
+                        <p>${itinerary.price}</p>
                     </div>
                     <div>
                         <h4>Likes:</h4>
@@ -124,7 +124,7 @@ function ItineraryCard({itinerary}) {
                     </div>
                 </div>
                 <div className="activities-container">
-                    {activities?.response.map(activity => <ActivityCard activity={activity} userid={itinerary.user._id} />)}
+                    {activities?.response.map(activity => <ActivityCard activity={activity} />)}
                 </div>
                 <p className='comment-title'>Leave us your comment below</p>
                 <button className="arrow-down" onClick={handleClick}><img src="/images/down-arrow.png" alt="arrow"/></button>
