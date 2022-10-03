@@ -21,7 +21,7 @@ export default function Details() {
     const handleShowItineraries = async() =>{
         try {
             let res = await showItineraries(id)
-            setArrayItineraries(res?.data.response)           
+            setArrayItineraries(res?.data.response)
         } catch (error) {
             console.log(error)
         }
@@ -69,7 +69,7 @@ export default function Details() {
                         </div>
                     </div>
                 </div>
-            </div>  
+            </div>
             {arrayItineraries.map(itinerary=> <ItineraryCard itinerary={itinerary}/>)}
             <LinkRouter className="Details-btn-back" to={"/cities"}>BACK</LinkRouter>
         </main>

@@ -1,10 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import apiURL from '../api'
 
 export const commentsAPI = createApi({
     reducerPath: "commentsAPI",
 
     baseQuery: fetchBaseQuery({
-        baseUrl: "http://localhost:4000/"
+        baseUrl: apiURL
     }),
 
     endpoints: (builder) => ({
@@ -26,7 +27,7 @@ export const commentsAPI = createApi({
         getNewComment: builder.mutation({
             query(comment){
                 return{
-                    url: 'comments',
+                    url: '/comments',
                     method: 'POST',
                     body: comment,
                     headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
@@ -36,7 +37,7 @@ export const commentsAPI = createApi({
         deleteComment: builder.mutation({
             query(id){
                 return{
-                    url: 'comments/' + id,
+                    url: '/comments/' + id,
                     method: 'DELETE',
                     headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
                 }
@@ -45,7 +46,7 @@ export const commentsAPI = createApi({
         updateComment: builder.mutation({
             query(body){
                 return{
-                    url: 'comments/' + body.id,
+                    url: '/comments/' + body.id,
                     method: 'PATCH',
                     body: body,
                     headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }

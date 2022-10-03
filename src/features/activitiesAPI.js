@@ -1,10 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import apiURL from '../api'
 
 export const activitiesAPI = createApi({
     reducerPath: "activitiesAPI",
 
     baseQuery: fetchBaseQuery({
-        baseUrl: "http://localhost:4000/"
+        baseUrl: apiURL
     }),
     
     endpoints: (builder) => ({
@@ -14,7 +15,7 @@ export const activitiesAPI = createApi({
         getActivities: builder.mutation({
             query(id){
                 return{
-                    url: 'activities?itinerary=' +id,
+                    url: '/activities?itinerary=' +id,
                     method: 'GET',
                 }
             }
@@ -25,7 +26,7 @@ export const activitiesAPI = createApi({
         getNewActivity: builder.mutation({
             query(activity){
                 return{
-                    url: 'activities',
+                    url: '/activities',
                     method: 'POST',
                     body: activity
                 }
@@ -34,7 +35,7 @@ export const activitiesAPI = createApi({
         getDeleteActivity: builder.mutation({
             query(id){
                 return{
-                    url: 'activities/' + id,
+                    url: '/activities/' + id,
                     method: 'DELETE'
                 }
             }

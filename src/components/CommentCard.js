@@ -1,6 +1,6 @@
 import '../styles/Comment.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { useDeleteCommentMutation, useUpdateCommentMutation, useGetAllCommentsMutation } from '../features/commentsAPI';
+import { useDeleteCommentMutation, useUpdateCommentMutation } from '../features/commentsAPI';
 import { useRef, useState, useEffect } from 'react';
 import { reload } from '../features/reloadSlice';
 

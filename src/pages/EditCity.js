@@ -2,6 +2,7 @@ import InputCities from "../components/InputCities";
 import '../styles/EditCity.css'
 import { useRef, useState, useEffect} from 'react'
 import axios from "axios";
+import apiURL from "../api";
 
 const year = new Date().getFullYear()
 
@@ -22,7 +23,7 @@ export default function EditCity() {
     const selectCity = useRef("")
 
     useEffect(() => {
-        axios.get('http://localhost:4000/cities')
+        axios.get(apiURL + '/cities')
         .then(response => {
             setCitiesArray(response.data.response)
         })
@@ -43,7 +44,7 @@ export default function EditCity() {
     
     const handleSelect = (e) => {
         e.preventDefault()
-        axios.get('http://localhost:4000/cities/'+ (selectCity.current.value))
+        axios.get(apiURL + '/cities/'+ (selectCity.current.value))
             .then(response => {
                 setOpen(true)
                 setCityData(response.data.response)
@@ -54,7 +55,7 @@ export default function EditCity() {
     }
 
     useEffect(() => {
-        axios.put('http://localhost:4000/cities/'+ (selectCity.current.value),
+        axios.put(apiURL + '/cities/'+ (selectCity.current.value),
             {_id, city, province, country, photo, population, fundation, description}
             )
             .then(response => {

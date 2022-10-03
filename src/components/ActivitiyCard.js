@@ -1,6 +1,6 @@
 import '../styles/ActivityCard.css';
 
-export default  function ActivityCard({activity}) {
+export default function ActivityCard({activity}) {
 
     return (
     <>
